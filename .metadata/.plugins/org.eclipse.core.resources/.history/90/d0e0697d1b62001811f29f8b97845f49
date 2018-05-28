@@ -1,0 +1,22 @@
+/**
+ *
+ */
+
+/**
+ * @author internousdev
+ *
+ */
+public class Capsule {
+	public static void main(String[]args){}
+
+	
+
+
+
+	public Add(100,22){
+		int ans = a+b;
+		System.out.println("a+b="+ans);
+
+	}
+
+}

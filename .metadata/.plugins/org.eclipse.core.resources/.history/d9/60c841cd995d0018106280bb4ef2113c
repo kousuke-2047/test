@@ -1,0 +1,21 @@
+/**
+ *
+ */
+
+/**
+ * @author internousdev
+ *
+ */
+public class Capsule {
+	public static void main(String[]args){
+
+	}
+
+
+
+	public static void add(100,29){
+		int ans = a+b;
+		System.out.println("a+b="+ans);
+
+	}
+}

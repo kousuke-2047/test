@@ -1,0 +1,22 @@
+package jp.co.internous.action;
+
+public class Main {
+	public static void main(String[] args){
+		int a;
+		int b;
+		a=3;
+		b=5;
+		int c;
+		c=a*b;
+		System.out.println(c);
+
+
+
+
+	}
+
+	}
+
+
+
+

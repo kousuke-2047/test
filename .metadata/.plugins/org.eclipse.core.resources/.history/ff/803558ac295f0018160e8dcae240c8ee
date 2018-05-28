@@ -1,0 +1,11 @@
+package Com.internousdev.webproj4.action;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Com.internoudev.webproj4.dao.HelloStrutsDAO;
+import Com.internoudev.webproj4.dto.HelloStrutsDTO;
+
+public class HelloStrutsAction {
+
+}

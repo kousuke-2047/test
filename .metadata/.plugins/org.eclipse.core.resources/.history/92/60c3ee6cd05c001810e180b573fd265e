@@ -1,0 +1,14 @@
+package com.internousdev.login.action;
+
+public class LoginAction extends ActionSupport implements SessionAware{
+	private String name;
+	private String pasword;
+	private Map<String,Object> session;
+
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}
