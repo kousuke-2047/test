@@ -1,11 +1,10 @@
 
 public class Add {
-	int a = 0;
-	int b = 0;
-	public Add(int a,int b){
-		
-		this.a = a;
-		this.b =b;
-	}
+	
+	int weight == 60;
+	(age1 + age2)*2>60;
+	age/2 == 1;
+	name
+			
 
 }
