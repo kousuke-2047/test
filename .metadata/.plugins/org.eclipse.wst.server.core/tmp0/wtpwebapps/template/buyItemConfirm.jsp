@@ -87,6 +87,14 @@ clear:both;
 				<td><s:property value="session.pay"/></td>
 			</tr>
 			<tr>
+				<td>a</td>
+				<td><s:property value="session.id"/></td>
+			</tr>
+			<tr>
+				<td>b</td>
+				<td><s:property value="session.login_user_id"/></td>
+			</tr>
+			<tr>
 				<td><s:submit value ="完了"/></td>
 			</tr>
 		</table>
