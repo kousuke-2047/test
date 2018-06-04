@@ -67,8 +67,8 @@
 			<s:submit value="商品購入"/>
 			</s:form>
 			<s:if test="#session.id !=null">
-			<p>
-			<a href='<s:url action ="LogoutAction"/>'></a></p>
+			<p>ログアウトする場合は
+			<a href='<s:url action ="LogoutAction"/>'>こちら</a></p>
 			</s:if>
 		</div>
 		</div>

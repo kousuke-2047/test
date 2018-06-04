@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 public class GoHomeAction extends ActionSupport implements SessionAware{
+
 	public Map<String ,Object>session;
 
 	public String execute(){

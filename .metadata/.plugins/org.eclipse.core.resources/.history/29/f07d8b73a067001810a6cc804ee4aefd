@@ -1,0 +1,5 @@
+package com.rensyu.util;
+
+public class DBConnector {
+
+}

@@ -1,0 +1,11 @@
+package com.rensyu.action;
+
+
+
+public class HomeAction {
+
+	public String execute(){
+		return SUCCESS;
+	}
+
+}

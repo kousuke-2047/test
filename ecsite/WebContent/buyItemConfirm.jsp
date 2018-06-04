@@ -54,7 +54,7 @@
 </style>
 <script type = "text/javascript">
 	function submitAction(url){
-		$('form').after('action',url);
+		$('form').attr('action',url);
 		$('form').submit();
 	}
 </script>

@@ -22,3 +22,9 @@ public class rensyu {
 
 }
 "select iit.item_name,ubit.total_price,ubit.total_count,ubit.pay from user_buy_item_transaction ubit left join item_info_transaction iit on ubit.item_transaction_id = iit.id where ubit.item_transaction_id=? and ubit.user_master_id = ? order by ubit.insert_date DESC"
+
+
+
+
+
+
