@@ -1,0 +1,34 @@
+set names utf8;
+set foregin_key_checks = 0;
+drop database if exists rensyu;
+
+create database rensyu;
+
+drop table if exists User;
+
+create table User{
+	
+	id int not null primary key auto_increment,
+	UserID varchar(16) unique,
+	UserPassword varchar(16),
+	UserName(50),
+	insertdate datetime,
+	updatedate datetime);
+	
+drop table if exists Item;
+	
+create table Item{
+	id int not null primary key auto_increment,
+	ItemName varchar(50),
+	ItemPrice int,
+	ItemStock int,
+	insertdate datetime,
+	updatedate datetime);
+	
+drop table if exists History;
+
+create table History(
+	id int not null primary key auto_increment,
+	ItemName varchar(50),
+	
+)

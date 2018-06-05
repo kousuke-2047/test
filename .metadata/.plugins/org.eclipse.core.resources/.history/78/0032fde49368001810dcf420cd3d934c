@@ -1,0 +1,14 @@
+package com.rensyu.action;
+
+
+
+public class BuyItemCompleteAction {
+
+	public String execute(){
+		String result;
+		result =SUCCESS;
+
+		return result;
+	}
+
+}

@@ -11,7 +11,7 @@
 	<meta name = "description" content="" />
 	<meta name="keywords" content="" />
 <title>ログイン画面</title>
-<style>
+<style type = "text/css">
 
 
 
@@ -50,8 +50,8 @@ footer{
 
 	<s:form action ="LoginAction" >
 
-		<s:textfiled name="UserID"/>ID
-		<s:textfiled name="UserPassword"/>PASSWORD
+		<s:textfield name="LoginId"/>ID
+		<s:textfield name="LoginPassword"/>PASSWORD
 		<s:submit value = "ログイン"/>
 
 	</s:form>

@@ -1,0 +1,37 @@
+package com.rensyu.action;
+
+import com.rensyu.dao.LoginDAO;
+import com.rensyu.dto.LoginDTO;
+import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+
+
+
+public class LoginAction extends ActionSupport{
+
+	private String LoginId;
+	private String LoginPassword;
+
+	public Map<String,Object>session;
+
+	private LoginDAO logindao = new LoginDAO();
+	private LoginDTO logindto = new LoginDTO();
+
+
+	public String execute(){
+
+		String result = ERROR;
+
+		logindto = logindao.getLoginInfo(String LoginId,String LoginPassword);
+
+
+		if(logindto.getLoginFlg()){
+
+			result = SUCCESS;
+
+		}
+		return result;
+
+	}
+}

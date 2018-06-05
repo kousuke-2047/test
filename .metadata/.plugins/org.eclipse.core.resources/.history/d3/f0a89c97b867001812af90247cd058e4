@@ -1,0 +1,14 @@
+package com.rensyu.dao;
+
+import
+
+public class LoginDAO {
+
+	String sql ="select * from User where UserId = ? and UserPassword = ?";
+
+	try{
+		PreparedStatement ps = new PrepareStatement;
+
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.rensyu.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.rensyu.util.DBConnector;;
+
+public class LoginDAO {
+
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+	
+
+
+
+
+
+	String sql ="select * from User where userId = ? and userPassword = ?";
+
+	try{
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setString(1,UserId);
+		ps.setString(2, UserName);
+
+	}catch{
+
+	}
+
+}

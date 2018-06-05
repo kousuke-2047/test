@@ -11,7 +11,7 @@
 	<meta name = "description" content="" />
 	<meta name="keywords" content="" />
 <title>ホーム画面</title>
-<style>
+<style type = "text/css">
 
 
 

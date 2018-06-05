@@ -1,0 +1,14 @@
+package com.rensyu.action;
+
+import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginCompleteAction extends ActionSupport{
+
+	public String execute(){
+		String result;
+		result = SUCCESS;
+
+	return result;
+	}
+}

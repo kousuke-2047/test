@@ -1,0 +1,22 @@
+package com.rensyu.dto;
+
+public class LoginDTO {
+
+	private String LoginId;
+	private String LoginPassword;
+
+	public String getLoginId(){
+		return LoginId;
+	}
+
+	public void setLoginId(String LoginId){
+		this.LoginId = LoginId;
+	}
+	public String getLoginPassword(){
+		return LoginPassword;
+	}
+	public void setLoginPassword(String Login){
+		this.LoginPassword = LoginPassword;
+	}
+
+}
