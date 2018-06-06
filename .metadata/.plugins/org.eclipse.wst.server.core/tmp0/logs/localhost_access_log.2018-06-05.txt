@@ -204,3 +204,11 @@
 127.0.0.1 - - [05/Jun/2018:16:34:43 +0900] "POST /Rensyu/LoginAction.action HTTP/1.1" 200 642
 127.0.0.1 - - [05/Jun/2018:16:34:45 +0900] "GET /Rensyu/LoginCompleteAction.action HTTP/1.1" 200 1674
 127.0.0.1 - - [05/Jun/2018:16:34:46 +0900] "POST /Rensyu/BuyItemAction.action HTTP/1.1" 200 9320
+127.0.0.1 - - [05/Jun/2018:16:35:02 +0900] "GET / HTTP/1.1" 404 1019
+127.0.0.1 - - [05/Jun/2018:16:35:03 +0900] "GET /Rensyu/ HTTP/1.1" 200 1053
+127.0.0.1 - - [05/Jun/2018:16:35:06 +0900] "GET /Rensyu/HomeAction.action HTTP/1.1" 200 1474
+127.0.0.1 - - [05/Jun/2018:16:35:11 +0900] "POST /Rensyu/LoginAction.action HTTP/1.1" 200 636
+127.0.0.1 - - [05/Jun/2018:16:35:12 +0900] "GET /Rensyu/HomeAction.action HTTP/1.1" 200 1474
+127.0.0.1 - - [05/Jun/2018:16:35:16 +0900] "POST /Rensyu/LoginAction.action HTTP/1.1" 200 642
+127.0.0.1 - - [05/Jun/2018:16:35:17 +0900] "GET /Rensyu/LoginCompleteAction.action HTTP/1.1" 200 1674
+127.0.0.1 - - [05/Jun/2018:16:35:18 +0900] "POST /Rensyu/BuyItemAction.action HTTP/1.1" 200 557

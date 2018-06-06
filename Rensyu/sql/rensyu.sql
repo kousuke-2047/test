@@ -33,7 +33,7 @@ create table History(
 	id int not null primary key auto_increment,
 	itemName varchar(50),
 	totalPrice int,
-	totalConut int,
+	totalCount int,
 	userid varchar(50),
 	pay varchar(16),
 	insertdate datetime,

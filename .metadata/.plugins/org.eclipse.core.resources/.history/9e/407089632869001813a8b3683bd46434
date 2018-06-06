@@ -1,0 +1,36 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import javax.websocket.Session;
+
+import org.apache.struts2.interceptor.SessionAware;
+import com.rensyu.dao.BuyItemCDAO;
+import com.rensyu.dto.BuyItemCDTO;
+import com.rensyu.dto.*;
+
+
+
+public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
+
+	BuyItemCDAO buyitemcdao = new BuyItemCDAO();
+	BuyItemCDTO buyitemcdto = new BuyItemCDTO();
+
+	public Map<String ,Object>session;
+
+	public String execute(){
+		String result;
+		result =SUCCESS;
+
+		buyitemcdao.BuyItemInfo(session.get("Id"), session.get("ItemName"), session.get("total"), session.get("count"), session.get("User").getLoginId(), session.get("pay"));
+
+
+
+		return result;
+	}
+
+	public void setSession(Map<String ,Object>session){
+		this.session = session;;
+	}
+
+}

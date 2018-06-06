@@ -1,0 +1,15 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.rensyu.dao.MypageDAO;
+import com.rensyu.dto.MypageDTO;
+
+public class MypageAction extends ActionSupport{
+
+	public String execute(){
+
+		String result = SUCCESS;
+
+		return result;
+	}
+}

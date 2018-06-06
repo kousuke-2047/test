@@ -1,0 +1,39 @@
+package com.rensyu.dao;
+
+import com.rensyu.dto.MypageDTO;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import com.rensyu.util.DBConnector;
+import java.sql.SQLException;
+
+
+public class MypageDAO {
+
+	private MypageDTO mypagedto= new MypageDTO();
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+
+	public MypageDTO HistoryInfo(){
+
+		String sql = "selcet * from history";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+
+
+			}
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return mypagedto;
+	}
+
+
+}

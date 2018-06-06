@@ -1,0 +1,28 @@
+package com.rensyu.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.rensyu.util.DBConnector;
+import com.rensyu.dto.BuyItemCDTO;
+import java.util.Map;
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
+
+public class BuyItemCDAO extends ActionSupport implements SessionAware{
+
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+	private BuyItemCDTO buyitemcdto = new BuyItemCDTO();
+	public Map<String ,Object>session;
+
+	public BuyItemCDTO BuyItemInfo(session.get(Id),){
+
+		String sql = "insert into history(id,itemName,totalPrice,totalCount,userid,pay,insertdate) values(?,?,?,?,?,?)";
+
+
+
+
+	}
+
+}

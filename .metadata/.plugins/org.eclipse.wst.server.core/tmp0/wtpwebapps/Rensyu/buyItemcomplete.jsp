@@ -18,5 +18,7 @@
 
 買えました
 
+<a href ='<s:url action ="MypageAction"/>' >マイページはここから</a>
+
 </body>
 </html>

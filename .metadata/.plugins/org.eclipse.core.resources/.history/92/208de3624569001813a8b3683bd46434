@@ -1,0 +1,10 @@
+package com.rensyu.dao;
+
+import com.rensyu.dto.MypageDTO;
+
+
+public class MypageDAO {
+
+	String sql = "selcet * from history";
+
+}

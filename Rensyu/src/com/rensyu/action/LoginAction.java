@@ -31,6 +31,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		if(((LoginDTO)session.get("User")).getLoginFlg()){
 
+
+			session.put("userId", LoginId);
+
 			result = SUCCESS;
 
 		}else{
