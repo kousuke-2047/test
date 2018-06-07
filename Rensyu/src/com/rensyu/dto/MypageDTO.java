@@ -2,12 +2,13 @@ package com.rensyu.dto;
 
 public class MypageDTO {
 
-	private String itemName;
-	private int totalPrice;
-	private int totalCount;
-	private String pay;
-	private String userid;
-	private String insertdate;
+	public String itemName;
+	public int totalPrice;
+	public int totalCount;
+	public String pay;
+	public String userId;
+	public String insertdate;
+	public int id;
 
 	public String getItemName(){
 		return itemName;
@@ -34,17 +35,23 @@ public class MypageDTO {
 		this.pay = pay;
 	}
 
-	public String getUserid(){
-		return userid;
+	public String getUserId(){
+		return userId;
 	}
-	public void setUserid(String userid){
-		this.userid= userid;
+	public void setUserid(String userId){
+		this.userId= userId;
 	}
 	public String getInsertdate(){
 		return insertdate;
 	}
 	public void setInsertdate(String insertdate){
 		this.insertdate = insertdate;
+	}
+	public int getId(){
+		return id;
+	}
+	public void setId(int id){
+		this.id = id;
 	}
 
 

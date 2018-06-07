@@ -18,7 +18,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		String result;
 		result =SUCCESS;
 
-		buyitemcdao.BuyItemInfo( session.get("ItemName").toString(), session.get("total").toString(), session.get("count").toString(), session.get("userId").toString(), session.get("pay").toString());
+		buyitemcdao.BuyItemInfo( session.get("Id").toString(), session.get("total").toString(), session.get("count").toString(), session.get("userId").toString(), session.get("pay").toString());
 
 
 

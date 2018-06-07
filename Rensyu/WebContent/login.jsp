@@ -25,7 +25,7 @@ header{
 
 .main{
 	width:100%;
-	height:100px;
+	height:300px;
 	background-color:lightblue;
 	color:black;
 	}
@@ -55,6 +55,8 @@ footer{
 		<s:submit value = "ログイン"/>
 
 	</s:form>
+
+	<a href ='<s:url action ="UserCreateAction"/>'>ユーザー作成はこちら</a>
 
 
 

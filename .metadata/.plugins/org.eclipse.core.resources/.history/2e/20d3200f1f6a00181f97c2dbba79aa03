@@ -1,0 +1,5 @@
+package com.rensyu.action;
+
+public class UserCreateFAction {
+
+}

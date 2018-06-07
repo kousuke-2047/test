@@ -1,0 +1,16 @@
+package com.rensyu.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.rensyu.util.DBConnector;
+import java.sql.SQLException;
+
+public class DeleteSDAO {
+
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+	public void deleteSInfo()
+
+}

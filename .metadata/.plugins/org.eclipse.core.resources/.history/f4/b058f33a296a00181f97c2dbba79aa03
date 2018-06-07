@@ -1,0 +1,41 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.rensyu.dao.UserCreateFDAO;
+import java.sql.SQLException;
+import org.apache.struts2.interceptor.SessionAware;
+import java.util.Map;
+
+
+public class UserCreateFAction extends ActionSupport implements SessionAware{
+
+	private String createId;
+	private String createPass;
+	private String createName;
+	private Map<String,Object>session;
+
+	UserCreateFDAO dao = new UserCreateFDAO();
+
+
+	public String execute()throws SQLException{
+		String result;
+
+	if(createId==null || createPass==null || createName==null){
+		result = ERROR;
+	}else{
+
+		dao.UserCreate(createId, createPass,createName);
+		result = SUCCESS;
+		session.put("createId", createId);
+		session.put("createPass", createPass);
+		session.put("createName", createName);
+	}
+	return result;
+	}
+
+	public void setSession(Map<String ,Object>session){
+		this.session= session;
+	}
+
+
+}

@@ -1,0 +1,27 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.sql.SQLException;
+import com.rensyu.dao.DeleteSDAO;
+
+public class DeleteSAction extends ActionSupport{
+
+	public String[] deleteids;
+
+	private DeleteSDAO dao = new DeleteSDAO();
+
+	public String execute()throws SQLException{
+
+		dao.deleteSInfo(deleteids);
+
+
+		String result =SUCCESS;
+
+		return result;
+	}
+
+
+
+
+
+}

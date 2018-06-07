@@ -1,9 +1,0 @@
-package com.internousdev.ecsite.action;
-
-import java.sql.SQLException;
-import java.util.Map;
-import org.apache.struts2.interceptor.*;
-
-public class UserCreateCompleteAction {
-
-}

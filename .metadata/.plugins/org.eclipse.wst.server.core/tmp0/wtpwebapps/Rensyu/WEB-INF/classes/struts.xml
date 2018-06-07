@@ -33,6 +33,30 @@
 	<result name = "success">mypage.jsp</result>
 	</action>
 
+	<action name = "DeleteHAction" class = "com.rensyu.action.DeleteHAction" method = "execute">
+	<result name = "success">deleteH.jsp</result>
+	<result name = "error">deleteX.jsp</result>
+	</action>
+
+	<action name = "DeleteSAction" class = "com.rensyu.action.DeleteSAction" method ="execute">
+	<result name = "success">deleteS.jsp</result>
+	</action>
+
+	<action name = "UserCreateAction" class = "com.rensyu.action.UserCreateAction" method ="execute">
+	<result name = "success">usercreate.jsp</result>
+	 </action>
+
+	<action name = "UserCreateFAction" class = "com.rensyu.action.UserCreateFAction" method = "execute">
+	<result name = "success">usercreateF.jsp</result>
+	<result name = "error">usercreate.jsp</result>
+	</action>
+
+	<action name = "UserCreateCAction" class = "com.rensyu.action.UserCreateCAction" method ="execute">
+	<result name = "success">usercreateC.jsp</result>
+	<result name = "back">usercreate.jsp</result>
+	</action>
+
+
 
 	</package>
 </struts>

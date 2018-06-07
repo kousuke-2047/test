@@ -13,6 +13,10 @@
 <title>確認画面</title>
 </head>
 <body>
+
+	名前<br>
+	<s:property value ="session.ItemName"/>
+	<br>
 	合計金額<br>
 	<s:property value ="session.total"/>
 	<br>

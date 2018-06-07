@@ -20,5 +20,7 @@
 
 <a href ='<s:url action ="MypageAction"/>' >マイページはここから</a>
 
+<a href ='<s:url action ="LoginCompleteAction"/>'>もう一度買う</a>
+
 </body>
 </html>

@@ -1,0 +1,15 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import
+
+
+public class DeleteHAction extends ActionSupport{
+
+	public String execute(){
+
+		String result = SUCCESS;
+		return result;
+	}
+
+}

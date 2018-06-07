@@ -31,7 +31,7 @@ drop table if exists History;
 
 create table History(
 	id int not null primary key auto_increment,
-	itemName varchar(50),
+	itemid int,
 	totalPrice int,
 	totalCount int,
 	userid varchar(50),

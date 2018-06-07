@@ -18,5 +18,7 @@
 せいこうです
 </a>
 
+<a href ='<s:url action = "MypageAction"/>'>マイページへ</a>
+
 </body>
 </html>

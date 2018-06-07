@@ -3,14 +3,15 @@ package com.rensyu.dto;
 public class LoginCDTO {
 
 	private int id;
-	private String itemName;
+	private int itemid;
 	private int itemPrice;
+	private String itemName;
 
-	public String getItemName(){
-		return itemName;
+	public int getItemid(){
+		return itemid;
 	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
+	public void setItemid(int itemid){
+		this.itemid = itemid;
 	}
 	public int getItemPrice(){
 		return itemPrice;
@@ -23,6 +24,12 @@ public class LoginCDTO {
 	}
 	public void setId(int id){
 		this.id = id;
+	}
+	public String getItemName(){
+		return itemName;
+	}
+	public void setItemName(String itemName){
+		this.itemName = itemName;
 	}
 
 }
