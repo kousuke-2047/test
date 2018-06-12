@@ -1,5 +1,0 @@
-package com.rensyu.dto;
-
-public class LoginDTO {
-
-}

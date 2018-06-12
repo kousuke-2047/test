@@ -72,7 +72,10 @@
 			</s:if>
 		</div>
 		</div>
+
+		<a href = '<s:url action ="CommanderAction"/>'>
 		<div id = "footer">
 		</div>
+		</a>
 </body>
 </html>

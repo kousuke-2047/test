@@ -15,18 +15,31 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	private ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 	private String message;
+	public String[] deleteh;
 
 	public String execute() throws SQLException{
 		if (!session.containsKey("id")){
 			return ERROR;
 		}
+
 		if(deleteFlg == null){
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id,user_master_id);
 		}else if(deleteFlg.equals("1")){
 			delete();
+		}else if(deleteFlg.equals("2")){
+			if(deleteh == null){
+				setMessage("商品の情報の削除に失敗しました");
+			}else{
+				setMessage("商品の情報を正しく削除しました");
+				myPageDAO.buyItemHDeleteS(deleteh);
+				String item_transaction_id = session.get("id").toString();
+				String user_master_id = session.get("login_user_id").toString();
+				myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id,user_master_id);
+			}
 		}
+
 		String result = SUCCESS;
 		return result;
 	}

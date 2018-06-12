@@ -22,12 +22,16 @@ public class UserCreateFAction extends ActionSupport implements SessionAware{
 
 
 
+		if(getCreateId().equals("") || getCreatePass().equals("") || getCreateName().equals("")){
 
-		result = SUCCESS;
-		session.put("createId", createId);
-		session.put("createPass", createPass);
-		session.put("createName", createName);
+			result = ERROR;
 
+		}else{
+			result = SUCCESS;
+			session.put("createId", createId);
+			session.put("createPass", createPass);
+			session.put("createName", createName);
+		}
 	return result;
 	}
 

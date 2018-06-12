@@ -59,4 +59,19 @@
 	<result name="success">home.jsp</result>
 	</action>
 
+	<action name = "CommanderAction" class="com.internousdev.ecsite.action.CommanderAction" method ="execute">
+	<result name = "success">commander.jsp</result>
+	</action>
+
+	<action name = "CommanderLAction" class ="com.internousdev.ecsite.action.CommanderLAction" method ="execute">
+	<result name = "success">commanderhome.jsp</result>
+	<result name = "error">home.jsp</result>
+	</action>
+
+	<action name = "UserDeleteAction" class = "com.internousdev.ecsite.action.UserDeleteAction" method = "execute">
+	<result name = "success">userDelete.jsp</result>
+	</action>
+
+
+
 	</package></struts>

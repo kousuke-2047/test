@@ -1,0 +1,38 @@
+package com.rensyu.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
+
+public class CommanderLAction extends ActionSupport{
+
+	private String CommanderID;
+	private String CommanderP;
+
+	public String execute(){
+
+		String result;
+
+		if(getCommanderID().equals("wada") && getCommanderP().equals("123")){
+			result = SUCCESS;
+
+		}else{
+			result = ERROR;
+		}
+		return result;
+	}
+	public String getCommanderID(){
+		return CommanderID;
+	}
+	public void setCommanderID(String CommanderID){
+		this.CommanderID = CommanderID;
+	}
+	public String getCommanderP(){
+		return CommanderP;
+	}
+	public void setCommanderP(String CommanderP){
+		this.CommanderP = CommanderP;
+	}
+
+
+
+}

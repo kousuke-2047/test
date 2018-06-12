@@ -1,0 +1,34 @@
+package com.rensyu.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import com.rensyu.util.DBConnector;
+
+
+public class UserdeleteCDAO {
+
+	DBConnector dbc = new DBConnector();
+	Connection con = dbc.getConnection();
+
+
+	public void DeleteUser(){
+
+		String sql ="delete from user where id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, );
+
+			ps.execute();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+	}
+
+}

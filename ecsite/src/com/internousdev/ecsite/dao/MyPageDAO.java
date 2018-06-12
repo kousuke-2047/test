@@ -61,5 +61,24 @@ public class MyPageDAO {
 		}
 		return result;
 	}
+	public void buyItemHDeleteS(String[] id)throws SQLException{
+		String sql = "delete from user_buy_item_transaction where id = ?";
+		int s= 0;
 
-}
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			while(id[s] != null){
+				ps.setString(1, id[s]);
+				ps.execute();
+				s++;
+			}
+		}catch(Exception e){
+				e.printStackTrace();
+			}
+
+
+		}
+
+	}
+
+

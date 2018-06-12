@@ -1,0 +1,16 @@
+set names utf8;
+set foreign_key_checks =0;
+drop database if exists itemlist;
+
+create database itemlist;
+
+use itemlist;
+
+drop table if exists item;
+
+create table item(
+	id int not null primary key auto_increment,
+	itemName varchar(50),
+	itemPrice int,
+	itemUrl
+)

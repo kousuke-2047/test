@@ -57,7 +57,8 @@ footer{
 
 	<br>
 
-
+</a>
+<a href ='<s:url action ="CommanderAction"/>' >
 	<footer>
 	ここはフッター
 	</footer>

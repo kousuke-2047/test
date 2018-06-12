@@ -1,0 +1,26 @@
+package com.rensyu.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import com.rensyu.util.DBConnector;
+import com.rensyu.dto.UserdeleteDTO;
+
+public class UserdeleteDAO {
+
+	DBConnector dbc = new DBConnector();
+	Connection con = dbc.getConnection();
+	UserdeleteDTO = dto = new UserdeleteDTO();
+
+
+	public String UserInfo(){
+
+		String sql = "select * from user";
+
+
+
+
+	}
+
+}

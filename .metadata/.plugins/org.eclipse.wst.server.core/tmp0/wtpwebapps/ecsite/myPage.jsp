@@ -42,9 +42,11 @@
 	}
 	#footer{
 	width:100%;
-	height:80px;
+	height:20px;
 	background-color:black;
-	clear:both;
+	position:fixed;
+	bottom:0px;
+
 	}
 	#text-right{
 	display:inline-block;
@@ -75,6 +77,7 @@
 				</tr>
 				<s:iterator value = "myPageList">
 				<tr>
+
 					<td><s:property value = "itemName"/></td>
 					<td><s:property value = "totalPrice"/></td>
 					<td><s:property value = "totalCount"/></td>
@@ -88,9 +91,42 @@
 					<s:submit value = "削除" method = "delete"/>
 				</s:form>
 			</s:elseif>
-			<s:if test="message !=null">
+
+			<h3>ご購入情報は以下になります</h3>
+				<s:form action="MyPageAction">
+				<table border="1">
+				<tr>
+					<th>No</th>
+					<th>商品名</th>
+					<th>値段</th>
+					<th>購入個数</th>
+					<th>支払い方法</th>
+					<th>購入日</th>
+				</tr>
+
+
+				<s:if test="message !=null">
 				<h3><s:property value = "message"/></h3>
-			</s:if>
+				</s:if>
+
+				<s:iterator value = "myPageList">
+				<tr>
+					<td><input type = "checkbox" name ="deleteh" value="<s:property value='id'/>"/>
+					<s:property value = "id"/></td>
+					<td><s:property value = "itemName"/></td>
+					<td><s:property value = "totalPrice"/></td>
+					<td><s:property value = "totalCount"/></td>
+					<td><s:property value = "payment"/></td>
+					<td><s:property value = "insert_date"/></td>
+				</tr>
+				</s:iterator>
+				</table>
+
+					<input type = "hidden" name= "deleteFlg" value="2">
+					<s:submit value = "削除"/>
+				</s:form>
+
+
 			<div id = "text-right">
 			<p>Homeへ戻る場合は<a href='<s:url action ="GoHomeAction"/>'>こちら</a></p>
 			<p>ログアウトする場合は<a href='<s:url action = "LogoutAction"/>'>こちら</a></p>

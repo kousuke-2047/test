@@ -40,6 +40,7 @@
 
 	<action name = "DeleteSAction" class = "com.rensyu.action.DeleteSAction" method ="execute">
 	<result name = "success">deleteS.jsp</result>
+	<result name = "error">deleteX.jsp</result>
 	</action>
 
 	<action name = "UserCreateAction" class = "com.rensyu.action.UserCreateAction" method ="execute">
@@ -54,6 +55,28 @@
 	<action name = "UserCreateCAction" class = "com.rensyu.action.UserCreateCAction" method ="execute">
 	<result name = "success">usercreateC.jsp</result>
 	<result name = "back">usercreate.jsp</result>
+	</action>
+
+	<action name = "CommanderAction" class = "com.rensyu.action.CommanderAction" method = "execute">
+	<result name = "success">commander.jsp</result>
+
+	</action>
+
+	<action name = "CommanderLAction" class = "com.rensyu.action.CommanderLAction" method = "execute">
+	<result name = "success">commanderhome.jsp</result>
+	<result name = "error">index.jsp</result>
+	</action>
+
+	<action name = "UserdeleteAction" class = "com.rensyu.action.UserdeleteAction" method = "execute">
+	<result name = "success">userdelete.jsp</result>
+	</action>
+
+	<action name = "UserdeleteCAction" class = "com.rensyu.action.UserdeleteCAction" method = "execute">
+	<result name = "success">userdeleteC.jsp</result>
+	</action>
+
+	<action name ="LogoutAction" class = "com.rensyu.action.LogoutAction" method = "execute">
+	<result name ="success">index.jsp</result>
 	</action>
 
 
