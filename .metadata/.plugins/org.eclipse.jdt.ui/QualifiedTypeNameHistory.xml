@@ -20,12 +20,12 @@
 <fullyQualifiedTypeName name="com.rensyu.util.DateUtil"/>
 <fullyQualifiedTypeName name="freemarker.template.utility.DateUtil"/>
 <fullyQualifiedTypeName name="com.rensyu.dao.UserCreateFDAO"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.dao.UserDeleteDAO"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.dto.UserDeleteDTO"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.util.DBConnector"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

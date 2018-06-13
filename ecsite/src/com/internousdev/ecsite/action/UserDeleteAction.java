@@ -19,11 +19,11 @@ public class UserDeleteAction extends ActionSupport{
 		if(deleteF==null){
 
 		}else{
-			if(deleteu[0].equals(null)){
-				message = "ユーザー削除に失敗しました";
-			}else{
+			if(getDeleteu() != null){
 				userddao.DeleteUser(deleteu);
 				message = "ユーザー削除に成功しました";
+			}else{
+				message = "ユーザー削除に失敗しました";
 			}
 		}
 		userList = userddao.getUserInfo();

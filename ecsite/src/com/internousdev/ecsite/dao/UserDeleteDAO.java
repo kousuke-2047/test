@@ -45,7 +45,7 @@ public class UserDeleteDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			int s = 0;
 
-			while(id[s].equals(null)){
+			while(id[s] !=null){
 				ps.setString(1, id[s]);
 				ps.execute();
 				s++;

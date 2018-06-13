@@ -65,6 +65,9 @@
 		ユーザー削除
 		</a>
 		<br>
+		<a href = '<s:url action = "LogoutAction"/>'>
+		ログアウト
+		</a>
 
 	</div>
 

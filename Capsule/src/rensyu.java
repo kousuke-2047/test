@@ -19,7 +19,7 @@ public class rensyu {
 
 
 
-
+		itemcdto.setCount(itemdao.Itemcount());
 
 }
 }

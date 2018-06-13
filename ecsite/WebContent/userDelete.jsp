@@ -85,6 +85,9 @@
 			<input type ="hidden" name="deleteF" value="1">
 			<s:submit value ="削除"/>
 		</s:form>
+
+		<a href ='<s:url action ="CommanderLAction"/>'>管理者ホーム</a>
+		<a href = '<s:url action = "LogoutAction"/>'>ログアウト</a>
 	</div>
 
 	<div id = "footer">
