@@ -13,7 +13,7 @@ public class ItemshowDTO {
 		this.id = id;
 	}
 	public String getItemName(){
-		return itemName;
+	return itemName;
 	}
 	public void setItemName(String itemName){
 		this.itemName = itemName;
@@ -24,5 +24,6 @@ public class ItemshowDTO {
 	public void setItemPrice(int itemPrice){
 		this.itemPrice =itemPrice;
 	}
-
 }
+
+

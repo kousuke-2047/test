@@ -12,8 +12,22 @@
 	<meta name = "description" content="" />
 	<meta name="keywords" content="" />
 <title>Item一覧画面</title>
+<style type = "text/css">
+
+header{
+	background-color:lightgray;
+	height:50px;
+	width:100%;
+	}
+
+
+</style>
 </head>
 <body>
+
+	<header>
+		<a href ='<s:url action ="GosearchAction"/>'>検索機能</a>
+	</header>
 
 	<s:form action="ItemshowAction">
 	<table>
@@ -25,7 +39,7 @@
 
 		<s:iterator value = "itemList">
 		<tr>
-			<td><input type ="radio" name="id" value="<s:property value='id'/>"/>
+			<td><input type ="radio" name="itemid" value="<s:property value='id'/>"/>
 			<s:property value = "id"/></td>
 			<td><s:property value = "itemName"/></td>
 			<td><s:property value = "itemPrice"/></td>

@@ -1,0 +1,49 @@
+package com.item.dao;
+
+import com.item.dto.SearchDTO;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.item.util.DBConnector;
+import java.util.ArrayList;
+
+public class WSearchDAO {
+
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+	public ArrayList<SearchDTO> SearchA(String word,int number)throws SQLException{
+
+		String sql = "select * from item where name like '%?%' limit ?,4";
+		ArrayList<SearchDTO> item = new ArrayList<SearchDTO>();
+
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			int num = number*4-4;
+
+			ps.setString(1, word);
+			ps.setInt(2, num);
+			ResultSet rs = ps.executeQuery();
+
+
+			while(rs.next()){
+				SearchDTO dto = new SearchDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setItemName(rs.getString("itemName"));
+				dto.setItemPrice(rs.getInt("itemPrice"));
+				dto.setCategory(rs.getString("category"));
+				item.add(dto);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return item;
+	}
+
+
+}

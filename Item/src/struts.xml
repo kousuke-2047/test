@@ -16,6 +16,14 @@
 	<result name ="success">itemshow.jsp</result>
 	</action>
 
+	<action name = "GosearchAction" class = "com.item.action.GosearchAction" method="execute">
+	<result name = "success">search.jsp</result>
+	</action>
+
+	<action name = "CSearchAction" class = "com.item.action.CSearchAction" method = "execute">
+	<result name ="success">searchshow.jsp</result>
+	</action>
+
 
 
 	</package>

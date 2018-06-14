@@ -15,21 +15,25 @@ public class ItemshowAction extends ActionSupport implements SessionAware{
 	public Map<String ,Object>session;
 	private ItemshowDTO dto = new ItemshowDTO();
 	private ItemshowDAO dao = new ItemshowDAO();
-	private int id;
+	private String itemid;
 
 	public String execute()throws SQLException{
 
-		dao.ItemShow(id);
 
-		session.put("id",dto.getId());
-		session.put("itemName",dto.getItemName());
-		session.put("itemPrice",dto.getItemPrice());
+		session.put("id",dao.ItemShow(itemid).getId());
+		session.put("itemName",dao.ItemShow(itemid).getItemName());
+		session.put("itemPrice",dao.ItemShow(itemid).getItemPrice());
 
 		String result = SUCCESS;
 		return result;
 	}
 	public void setSession(Map<String ,Object>session){
 		this.session = session;
+	}public String getItemid(){
+		return itemid;
+	}
+	public void setItemid(String itemid){
+		this.itemid = itemid;
 	}
 }
 

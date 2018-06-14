@@ -14,5 +14,20 @@
 </head>
 <body>
 
+	<table>
+		<tr>
+			<td>No</td>
+			<td><s:property value="session.id"/></td>
+		</tr>
+		<tr>
+			<td>商品名</td>
+			<td><s:property value ="session.itemName"/></td>
+		</tr>
+		<tr>
+			<td>値段</td>
+			<td><s:property value ="session.itemPrice"/></td>
+		</tr>
+	</table>
+
 </body>
 </html>

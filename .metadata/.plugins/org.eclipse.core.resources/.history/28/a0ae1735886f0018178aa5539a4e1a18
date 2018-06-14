@@ -1,0 +1,37 @@
+package com.item.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.item.dao.CSearchDAO;
+import java.util.ArrayList;
+import com.item.dto.SearchDTO;
+
+
+
+public class CSearchAction extends ActionSupport{
+
+	private CSearchDAO dao = new CSearchDAO();
+	private ArrayList<SearchDTO> itemList = new ArrayList<SearchDTO>();
+	private String category;
+
+
+	public String execute(){
+
+		itemList = dao.SearchC(category);
+
+
+
+
+
+
+
+
+
+
+
+
+		String result  = SUCCESS;
+		return result;
+
+	}
+
+}

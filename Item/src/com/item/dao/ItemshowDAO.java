@@ -14,16 +14,13 @@ public class ItemshowDAO {
 	private DBConnector dbc = new DBConnector();
 	private Connection con = dbc.getConnection();
 	private ItemshowDTO dto = new ItemshowDTO();
+	String sql = "select * from item where id = ?";
 
-	public ItemshowDTO ItemShow(int id) throws SQLException{
-
-		String sql = "select * from item where id = ?";
-
-
+	public ItemshowDTO ItemShow(String id) throws SQLException{
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
@@ -37,11 +34,7 @@ public class ItemshowDAO {
 				con.close();
 			}
 		return dto;
-
-
 		}
-
-
 	}
 
 

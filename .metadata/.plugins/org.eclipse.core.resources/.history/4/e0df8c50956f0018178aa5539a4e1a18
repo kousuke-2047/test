@@ -1,0 +1,19 @@
+package com.item.dao;
+
+import com.item.dto.SearchDTO;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.item.util.DBConnector;
+import java.util.ArrayList;
+
+public class WSearchDAO {
+
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+	public ArrayList<SearchDTO>
+
+
+}
