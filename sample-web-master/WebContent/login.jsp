@@ -25,6 +25,7 @@ function goResetPasswordAction(){
 <div id="contents">
 <h1>ログイン画面</h1>
 <s:form id="form" action="LoginAction">
+<!-- isEnpty()は「空文字」であるかを判別できる(nullとは別物なので注意！) -->
 	<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 		<div class="error">
 			<div class="error-message">

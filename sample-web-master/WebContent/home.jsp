@@ -10,6 +10,7 @@
 <title>ホーム</title>
 </head>
 <body>
+<!-- ヘッダーとフッターを呼び出してる(すごい) -->
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>ホーム画面</h1>

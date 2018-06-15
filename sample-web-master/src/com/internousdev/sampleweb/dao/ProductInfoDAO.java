@@ -86,6 +86,9 @@ public class ProductInfoDAO {
 		return productInfoDTO;
 	}
 
+
+
+	// おすすめ商品を表示する為の情報を取ってくる
 	public List<ProductInfoDTO> getProductInfoListByCategoryId(int categoryId, int productId) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();

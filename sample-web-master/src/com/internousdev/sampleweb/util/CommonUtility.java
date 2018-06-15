@@ -7,8 +7,10 @@ public class CommonUtility {
 	public String getRamdomValue() {
 		String value="";
 		double d;
+		//16桁の数字の「文字列」を作っているだけ
 		for(int i=1; i<=16; i++) {
 			d=Math.random() * 10;
+			//計算しているわけではなく、ただ単に追加しているだけ
 			value=value+((int)d);
 		}
 		return value;

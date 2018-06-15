@@ -40,6 +40,10 @@ Sample Web
 <ul>
 <s:form id="form" name="form">
 	<s:if test='#session.containsKey("mCategoryDtoList")'>
+
+	<!-- 属性はセレクト(プルダウンメニュー)、名前はcategoryId、プルダウンメニューの名前にlistのcategoryNameをつける、値はそれぞれcategoryIdをつける
+	classはcss関係、idはjavascript関係 -->
+
 	<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" class="cs-div" id="categoryId"/></li>
 	</s:if>
 	<li><s:textfield name="keywords" class="txt-keywords" placeholder="検索ワード" /></li>

@@ -36,11 +36,14 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
 			case "1":
+				//replaceAllは　←これを ←これに変える(全角スペースを半角スペースにしてるだけ)
+				//splitで ←(半角スペース)で分け、配列にするということができる
 				productInfoDtoList = productInfoDAO.getProductInfoListAll(keywords.replaceAll("　", " ").split(" "));
 				result = SUCCESS;
 				break;
 
 			default:
+				//カテゴリ検索もしてるとき
 				productInfoDtoList = productInfoDAO.getProductInfoListByKeywords(keywords.replaceAll("　", " ").split(" "), categoryId);
 				result = SUCCESS;
 				break;
@@ -60,9 +63,12 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 	if(!(productInfoDtoList==null)) {
 		Pagination pagination = new Pagination();
 		PaginationDTO paginationDTO = new PaginationDTO();
+		//ページ番号をもらってない(検索した後の最初は1だから)時
 		if(pageNo==null) {
 			paginationDTO = pagination.initialize(productInfoDtoList, 9);
-		}else {
+		}
+		//多分、ページ番号をjspから拾ってきたとき
+		else {
 			paginationDTO = pagination.getPage(productInfoDtoList, 9, pageNo);
 		}
 

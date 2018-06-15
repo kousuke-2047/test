@@ -39,6 +39,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("loginId", loginId);
 		}else {
 			session.put("savedLoginId", false);
+			//putの逆のremove
 			session.remove("loginId", loginId);
 		}
 
@@ -67,6 +68,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				int count=0;
 				CartInfoDAO cartInfoDao = new CartInfoDAO();
 
+				// たぶんカートに入れた後、ログインしたときにカーと情報を残す設定？
 				count = cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
 				if(count > 0) {
 					DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();

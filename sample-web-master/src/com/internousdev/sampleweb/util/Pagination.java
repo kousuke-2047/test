@@ -13,26 +13,31 @@ public class Pagination {
 		PaginationDTO paginationDTO = new PaginationDTO();
 		// 全ページ数
 		paginationDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));
-		// 現在のページ番号
+		// 現在のページ番号　イニシャライズなので１で固定
 		paginationDTO.setCurrentPageNo(1);
 		// 全レコード数
 		paginationDTO.setTotalRecordSize(list.size() - 1);
-		// 現在のページ番号に対する開始レコード番号（オフセット）
+
+		// 現在のページ番号に対する開始レコード番号（オフセット）　右上の番号
 		paginationDTO.setStartRecordNo(pageSize * (paginationDTO.getCurrentPageNo() -1));
-		// 現在のページ番号に対する終了レコード番号
+		// 現在のページ番号に対する終了レコード番号　左下の番号
 		paginationDTO.setEndRecordNo(paginationDTO.getStartRecordNo() + (pageSize - 1));
 
+
+		// ページ番号をリストに入れてる
 		List<Integer> pageNumberList = new ArrayList<Integer>();
 		for(int pageNumber = 1;pageNumber <= paginationDTO.getTotalPageSize(); pageNumber++) {
 			pageNumberList.add(pageNumber);
 		}
 
+		// そのページの中身の番号をリストに入れている
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for(int pageNumberOffset=paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO.getEndRecordNo(); pageNumberOffset++) {
 			productInfoPages.add(list.get(pageNumberOffset));
 		}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
+		// もし右上の番号が0(何もなし)なら、前ページはない　見たいな事書いてる
 		if((paginationDTO.getStartRecordNo() - 1) <= 0) {
 			paginationDTO.setPreviousPage(false);
 		}else {
@@ -40,6 +45,7 @@ public class Pagination {
 			paginationDTO.setPreviousPageNo(paginationDTO.getCurrentPageNo() - 1);
 		}
 
+		// もし左下の番号にページ表示数(9)を足した値が、最後の番号より大きいなら次ページなし
 		if(paginationDTO.getEndRecordNo() + pageSize > paginationDTO.getTotalRecordSize()) {
 			paginationDTO.setNextPage(false);
 		}else {
