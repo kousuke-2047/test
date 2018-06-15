@@ -65,14 +65,11 @@ public class CSearchDAO {
 				itemcdto.setPage(i);
 				counts.add(itemcdto);
 			}
-
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			con.close();
 		}
-
 		return counts;
-
 	}
 }

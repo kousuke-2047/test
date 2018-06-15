@@ -24,6 +24,10 @@
 	<result name ="success">searchshow.jsp</result>
 	</action>
 
+	<action name ="WSearchAction" class ="com.item.action.WSearchAction" method="execute">
+	<result name ="success">wsearchshow.jsp</result>
+	</action>
+
 
 
 	</package>

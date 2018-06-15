@@ -1,0 +1,6 @@
+package com.item.action;
+
+
+public class WSearchAction {
+
+}

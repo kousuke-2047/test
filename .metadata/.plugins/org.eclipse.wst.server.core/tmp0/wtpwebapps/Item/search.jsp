@@ -27,7 +27,7 @@
 		<s:submit value="カテゴリ検索"/>
 	</s:form>
 	<br><br>
-	<s:form action ="">
+	<s:form action ="WSearchAction">
 		<input type="text" name="word">
 		<input type="hidden" name="number" value="1">
 		<s:submit value="キーワード検索"/>
