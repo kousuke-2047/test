@@ -83,7 +83,12 @@ public class CartInfoDAO {
 		int totalPrice = 0;
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
+
+		// カートインフォ内の、ユーザーIDが？のものの、数*値段(名前をtotal_priceと名付ける)の合計の合計「ややこしい」を求めている
 		String sql = "select sum(product_count * price) as total_price from cart_info where user_id=? group by user_id";
+
+
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userId);

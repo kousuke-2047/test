@@ -44,13 +44,19 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 			userId = String.valueOf(session.get("tempUserId"));
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
+		// ここちょっと意味不明
 		productCount = String.valueOf((productCount.split(" ,",0))[0]);
 
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
+
+		// ここでカートに追加している
 		int count = cartInfoDao.regist(userId,tempUserId,productId,productCount,price);
+
 		if(count > 0) {
 			result=SUCCESS;
 		}
+
+		// ここから先でカート内の全件の情報を持ってきている
 		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
 		Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();

@@ -47,10 +47,14 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 			return ERROR;
 		}
 
+		//ここで履歴削除、かつ、した数を数えてる。
 		for(String id:checkList) {
 			System.out.println(id);
 			count += cartInfoDAO.delete(id);
 		}
+
+		// これ以降はカーと表示
+
 		if(count <= 0) {
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);

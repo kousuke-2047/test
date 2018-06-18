@@ -11,6 +11,7 @@ public class Pagination {
 	public PaginationDTO initialize(List<ProductInfoDTO> list, int pageSize) {
 
 		PaginationDTO paginationDTO = new PaginationDTO();
+
 		// 全ページ数
 		paginationDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));
 		// 現在のページ番号　イニシャライズなので１で固定
@@ -18,9 +19,9 @@ public class Pagination {
 		// 全レコード数
 		paginationDTO.setTotalRecordSize(list.size() - 1);
 
-		// 現在のページ番号に対する開始レコード番号（オフセット）　右上の番号
+		// 現在のページ番号に対する開始レコード番号（オフセット）　左上の番号
 		paginationDTO.setStartRecordNo(pageSize * (paginationDTO.getCurrentPageNo() -1));
-		// 現在のページ番号に対する終了レコード番号　左下の番号
+		// 現在のページ番号に対する終了レコード番号　右下の番号
 		paginationDTO.setEndRecordNo(paginationDTO.getStartRecordNo() + (pageSize - 1));
 
 
@@ -37,7 +38,8 @@ public class Pagination {
 		}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
-		// もし右上の番号が0(何もなし)なら、前ページはない　見たいな事書いてる
+		// もし左上の番号が0(一番最初の番号)なら、前ページはない　見たいな事書いてる
+		// ここは最初のページなので基本的にfalseになる(ここのif文いらない)
 		if((paginationDTO.getStartRecordNo() - 1) <= 0) {
 			paginationDTO.setPreviousPage(false);
 		}else {
@@ -45,7 +47,7 @@ public class Pagination {
 			paginationDTO.setPreviousPageNo(paginationDTO.getCurrentPageNo() - 1);
 		}
 
-		// もし左下の番号にページ表示数(9)を足した値が、最後の番号より大きいなら次ページなし
+		// もし右下の番号にページ表示数(9)を足した値が、最後の番号より大きいなら次ページなし
 		if(paginationDTO.getEndRecordNo() + pageSize > paginationDTO.getTotalRecordSize()) {
 			paginationDTO.setNextPage(false);
 		}else {

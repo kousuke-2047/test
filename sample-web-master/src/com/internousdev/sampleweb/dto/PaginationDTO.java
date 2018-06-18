@@ -18,10 +18,12 @@ public class PaginationDTO {
 	private List<Integer> pageNumberList = new ArrayList<Integer>();
 	// １ページ分のリストページ情報（商品情報）
 	private List<ProductInfoDTO> currentProductInfoPage;
+
 	// 次ページが存在するか
 	private boolean hasNextPage;
 	// 前ページが存在するか
 	private boolean hasPreviousPage;
+
 	private int nextPageNo;
 	private int previousPageNo;
 	public int getTotalPageSize() {

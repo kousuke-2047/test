@@ -24,12 +24,12 @@
 <div class="product-list-box">
 <ul>
 	<li>
-	<a href='<s:url action="ProductDetailsAction">
 	<!-- s:paramタグで aタグでも値を送ることができる、。ここでは持ってきた値をそのまんま渡している -->
+	<!-- 画像ファイルの扱いが　パス　/　url　といった感じで分けている
+	 多分、商品登録する関係で分けていると思う -->
+	<a href='<s:url action="ProductDetailsAction">
 	<s:param name="productId" value="%{productId}"/>
 	</s:url>'>
-	<!-- 画像ファイルの扱いが　パス　/　url　といった感じで分けている
-		 多分、商品登録する関係で分けていると思う -->
 	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-200"/></a><br>
 	<s:property value="productName"/><br>
 	<s:property value="productNameKana"/><br>
@@ -40,6 +40,7 @@
 </s:iterator>
 </div>
 <div class="pager">
+<!-- statusタグはいろんな機能を使えるようになる -->
 <s:iterator begin="1" end="#session.totalPageSize" status="pageNo">
 	<s:if test="#session.currentPageNo == #pageNo.count">
 		<s:property value="%{#pageNo.count}"/>

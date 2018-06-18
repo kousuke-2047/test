@@ -36,6 +36,8 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() {
 		String result = ERROR;
 
+
+		// 送り先情報を送ってる　tryなのはthrowsしてるから
 		if(session.containsKey("loginId")) {
 			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 			List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<>();
@@ -52,6 +54,9 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		}
 
 
+		//　購入履歴用？わからん　まだDAOを使ってない
+		//ここで購入情報をとっとく理由は送り先登録画面から来たときに便利だから？←違う
+		//ここでセッションに置いとくとやりやすいから？
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = new ArrayList<PurchaseHistoryInfoDTO>();
 
 		CommonUtility commonUtility = new CommonUtility();

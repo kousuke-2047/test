@@ -35,13 +35,18 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		session.put("releaseCompany", productInfoDTO.getReleaseCompany());
 		session.put("releaseDate", productInfoDTO.getReleaseDate());
 		session.put("productDescription", productInfoDTO.getProductDescription());
+
+		// 個数表示のためにいる
 		List<Integer> productCountList = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 		session.put("productCountList", productCountList);
+
+		// おすすめ商品を表示するためのもの
 		productInfoDtoList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCatgoryId(), productInfoDTO.getProductId(), 0, 3);
 		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
 		if(!(iterator.hasNext())) {
 			productCountList = null;
 		}
+		
 		if(!productInfoDtoList.isEmpty() || productCountList==null) {
 			session.put("productInfoDtoList", productInfoDtoList);
 			result = SUCCESS;
