@@ -15,7 +15,7 @@ import com.internousdev.sampleweb.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementCompleteAction extends ActionSupport implements SessionAware{
-
+	//☆
 	private String id;
 	private String categoryId;
 	private Map<String, Object> session;
@@ -29,11 +29,18 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		@SuppressWarnings("unchecked")
 		ArrayList<DestinationInfoDTO> destinationInfoDtoList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDtoList");
 		for(int i=0;i<purchaseHistoryInfoDtoList.size();i++) {
+
+			// 「desListのほうの、今回会計したときの住所ID」を、「履歴のほうに1つづつ入れる」←だから3回
+			// ここでは履歴を1個1個分けているから(phpmydmainを見よう)
+			//purchaseのほうのListに、住所のidを入れている(insertする準備)(外部接続みたいな感じ)
 			purchaseHistoryInfoDtoList.get(i).setDestinationId(destinationInfoDtoList.get(0).getId());
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = 0;
+
+		//　ここで、さっき準備したデータをinsertしている、そして数も数えてる
+		// ここでは履歴を1個1個分けているから(phpmydmainを見よう)
 		for(int i=0; i<purchaseHistoryInfoDtoList.size();i++) {
 			count += purchaseHistoryInfoDAO.regist(
 					String.valueOf(session.get("loginId")),
@@ -43,10 +50,15 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 					purchaseHistoryInfoDtoList.get(i).getSubtotal()
 					);
 		}
+
+		// 表に入れ終わったらカートのデータを削除、
 		if(count > 0) {
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
 			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 			if(count > 0) {
+
+				//ここからは謎、なくても動作しそうだが、予備に書いてあるっぽい
+				//totalPriceをリセットするためにcartInfoDToの中身をなくすため(nullを入れるため)
 				List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 				cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(String.valueOf(session.get("loginId")));
 				Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();

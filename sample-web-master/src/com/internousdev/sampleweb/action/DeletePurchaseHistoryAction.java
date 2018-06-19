@@ -12,6 +12,7 @@ import com.internousdev.sampleweb.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
+	
 	private String categoryId;
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();

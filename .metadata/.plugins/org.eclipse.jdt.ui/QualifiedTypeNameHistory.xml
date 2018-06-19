@@ -40,4 +40,5 @@
 <fullyQualifiedTypeName name="com.item.dao.WSearchDAO"/>
 <fullyQualifiedTypeName name="com.item.dto.ItemCDTO"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>

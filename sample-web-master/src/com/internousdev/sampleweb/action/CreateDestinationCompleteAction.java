@@ -10,6 +10,7 @@ import com.internousdev.sampleweb.dao.DestinationInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationCompleteAction extends ActionSupport implements SessionAware{
+	//insertしてるだけ☆
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;

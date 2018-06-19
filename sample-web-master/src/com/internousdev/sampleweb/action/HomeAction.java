@@ -12,6 +12,7 @@ import com.internousdev.sampleweb.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HomeAction extends ActionSupport implements SessionAware{
+	//☆
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private String categoryId;
 	private Map<String, Object> session;

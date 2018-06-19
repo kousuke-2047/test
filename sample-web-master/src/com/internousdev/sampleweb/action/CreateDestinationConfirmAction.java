@@ -10,6 +10,7 @@ import com.internousdev.sampleweb.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationConfirmAction extends ActionSupport implements SessionAware{
+	// とくになしcreateUserと同じ☆
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -44,6 +45,7 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 		userAddressErrorMessageList = inputChecker.doCheck("住所", userAddress, 15, 50, false, true, true, true, true, true, true);
 		telNumberErrorMessageList = inputChecker.doCheck("電話番号", telNumber, 10, 13, false, false, false, true, false, false, false);
 		emailErrorMessageList = inputChecker.doCheck("メールアドレス", email, 18, 32, true, false, false, false, true, false, false);
+
 		if(familyNameErrorMessageList.size()==0
 		&& firstNameErrorMessageList.size()==0
 		&&	familyNameKanaErrorMessageList.size()==0

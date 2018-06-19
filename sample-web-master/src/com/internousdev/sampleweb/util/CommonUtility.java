@@ -16,6 +16,8 @@ public class CommonUtility {
 		return value;
 	}
 
+
+	// splitするだけ、後ろの「0」は関係ない。
 	public String[] parseArrayList(String s) {
 		return s.split(", ",0);
 	}

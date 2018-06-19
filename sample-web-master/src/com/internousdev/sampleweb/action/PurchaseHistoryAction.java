@@ -14,6 +14,7 @@ import com.internousdev.sampleweb.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
+	// 軽く読んだけど履歴呼び出してるだけ?☆
 	private String categoryId;
 
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();

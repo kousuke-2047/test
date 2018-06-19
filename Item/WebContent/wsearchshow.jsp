@@ -32,12 +32,20 @@
 			</tr>
 			</s:iterator>
 		</table>
+		<s:submit value="アイテム表示"/>
 	</s:form>
 
 	<s:form action ="WSearchAction">
-		<s:iterator value="countList">
+		<s:iterator value="countList" status="pageNo">
+
+			<s:if test="#pageNo.count==number">
+
+			<s:property value="page"/>
+			</s:if>
+			<s:else>
 			<input type ="radio" name="number" value="<s:property value='page'/>"/>
 			<s:property value="page"/>
+			</s:else>
 		</s:iterator>
 		<input type ="hidden" name="word" value="<s:property value='session.word'/>"/>
 		<s:submit value="ページ切り替え"/>

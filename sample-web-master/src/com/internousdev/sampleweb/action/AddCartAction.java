@@ -14,7 +14,7 @@ import com.internousdev.sampleweb.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddCartAction extends ActionSupport implements SessionAware{
-
+//☆
 	private int productId;
 	private String productName;
 	private String productNameKana;
@@ -45,6 +45,9 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
 		// ここちょっと意味不明
+		// prodectdetail.jspにてlist型なので複数あるから？(わからん)
+		// リストをそのまま入れるから
+		// productCountの中身を「,」で分けて配列にしている(配列の長さは不問)←これ
 		productCount = String.valueOf((productCount.split(" ,",0))[0]);
 
 		CartInfoDAO cartInfoDao = new CartInfoDAO();

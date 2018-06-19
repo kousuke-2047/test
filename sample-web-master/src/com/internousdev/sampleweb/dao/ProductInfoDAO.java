@@ -169,6 +169,8 @@ public class ProductInfoDAO {
 		return productInfoDtoList;
 	}
 
+
+	//ここの書き方重要「?」だと機能しない
 	public List<ProductInfoDTO> getProductInfoListAll(String[] keywordsList) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();

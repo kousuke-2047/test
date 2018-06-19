@@ -11,6 +11,7 @@ import com.internousdev.sampleweb.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoLoginAction extends ActionSupport implements SessionAware{
+	// 特に問題なし☆
 	private String categoryId;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
@@ -20,6 +21,7 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 			mCategoryDtoList = mCategoryDao.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
+		// sessionをリセットしてる(中身があると困る)
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
 		return SUCCESS;

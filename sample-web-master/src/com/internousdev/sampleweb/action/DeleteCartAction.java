@@ -14,6 +14,7 @@ import com.internousdev.sampleweb.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteCartAction extends ActionSupport implements SessionAware{
+	//☆
 	private Collection<String> checkList;
 	private String categoryId;
 	private String productId;

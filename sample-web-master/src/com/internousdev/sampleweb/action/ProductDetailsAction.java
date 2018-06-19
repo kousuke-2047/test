@@ -14,6 +14,7 @@ import com.internousdev.sampleweb.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware{
+	//☆
 	private int productId;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
@@ -43,10 +44,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		// おすすめ商品を表示するためのもの
 		productInfoDtoList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCatgoryId(), productInfoDTO.getProductId(), 0, 3);
 		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
+
+		// とりあえず値を入れるため(別にproductCountListでなくてもよい)
 		if(!(iterator.hasNext())) {
 			productCountList = null;
 		}
-		
+
 		if(!productInfoDtoList.isEmpty() || productCountList==null) {
 			session.put("productInfoDtoList", productInfoDtoList);
 			result = SUCCESS;

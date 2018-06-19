@@ -8,6 +8,7 @@ import com.internousdev.sampleweb.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordCompleteAction extends ActionSupport implements SessionAware {
+	//update文なだけ☆
 	private String categoryId;
 	private String loginId;
 	private String password;

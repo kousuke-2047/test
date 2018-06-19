@@ -16,7 +16,7 @@ public class WSearchDAO {
 
 	public ArrayList<SearchDTO> SearchA(String word,int number){
 
-		String sql = "select * from item where itemName like '%"+"?"+"%' limit ?,4";
+		String sql = "select * from item where itemName like '%"+word+"%' limit ?,4";
 		ArrayList<SearchDTO> item = new ArrayList<SearchDTO>();
 
 
@@ -27,7 +27,7 @@ public class WSearchDAO {
 
 
 			ps.setInt(1, num);
-			ps.setString(2, word);
+
 			ResultSet rs = ps.executeQuery();
 
 
@@ -46,7 +46,7 @@ public class WSearchDAO {
 	}
 	public ArrayList<ItemCDTO> Wcount(String word)throws SQLException{
 
-		String sql ="select count(*) from item where itemName like %a%";
+		String sql ="select count(*) from item where itemName like '%" +word+ "%'";
 		ItemCDTO itemcdto = new ItemCDTO();
 		ArrayList<ItemCDTO> count = new ArrayList<ItemCDTO>();
 
@@ -54,7 +54,6 @@ public class WSearchDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ResultSet rs = ps.executeQuery();
-			ps.setString(1, word);
 			rs.next();
 
 			itemcdto.setCount(rs.getInt(1));

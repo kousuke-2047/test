@@ -17,6 +17,7 @@ import com.internousdev.sampleweb.util.Pagination;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchItemAction extends ActionSupport implements SessionAware{
+	//☆
 	private String categoryId;
 	private String keywords;
 	private String pageNo;

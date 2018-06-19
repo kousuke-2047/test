@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationAction extends ActionSupport implements SessionAware{
+	// ただ移動してるだけ、ついでにremoveしてる☆
 	private String categoryId;
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
@@ -21,6 +22,7 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		sexList.add(MALE);
 		sexList.add(FEMALE);
 
+		//removeは取り除く
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
 		session.remove("famimyNameKanaErrorMessageList");

@@ -9,6 +9,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserCompleteAction extends ActionSupport implements SessionAware{
 
+	//もらったデータをinsertしてるだけ、簡単☆
+
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;

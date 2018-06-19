@@ -8,6 +8,7 @@ import com.internousdev.sampleweb.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport implements SessionAware{
+	// ☆
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
@@ -18,6 +19,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 		int count = userInfoDao.logout(loginId);
 		if(count > 0) {
 			session.clear();
+			//セーブログインフラグとIdだけとっておいてる
 			session.put("savedLoginId", savedLoginId);
 			session.put("loginId", loginId);
 			result = SUCCESS;

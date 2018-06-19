@@ -11,6 +11,8 @@ import com.internousdev.sampleweb.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware{
+	// inputcheckerは謎、あとは値をもらってsessionしてるだけ
+	//一応☆
 	private String loginId;
 	private String password;
 	private String newPassword;
@@ -44,6 +46,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		&& newPasswordIncorrectErrorMessageList.size()==0) {
 
 			UserInfoDAO userInfoDAO = new UserInfoDAO();
+			//inputcheckerした後、パスワードとユーザーIdがあるかどうか調べる
 			if(userInfoDAO.isExistsUserInfo(loginId, password)) {
 				String concealedPassword = userInfoDAO.concealPassword(password);
 				session.put("loginId", loginId);

@@ -19,6 +19,7 @@ import com.internousdev.sampleweb.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
+	//★　inputcheckerが謎
 	private String categoryId;
 	private String loginId;
 	private String password;

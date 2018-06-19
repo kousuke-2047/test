@@ -14,6 +14,7 @@ import com.internousdev.sampleweb.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartAction extends ActionSupport implements SessionAware{
+	//☆
 	private String categoryId;
 	private String keywords;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();

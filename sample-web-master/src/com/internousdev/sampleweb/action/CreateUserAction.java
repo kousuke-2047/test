@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserAction extends ActionSupport implements SessionAware{
+	//ただ移動してるだけ、ついでにremove☆
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;

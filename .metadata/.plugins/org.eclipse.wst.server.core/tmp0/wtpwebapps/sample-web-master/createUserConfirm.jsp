@@ -53,6 +53,7 @@
 <s:submit value="登録" class="submit_btn" />
 </div>
 </div>
+<!-- s:hiddenを使うときはsubmitの下 -->
 <s:hidden name="loginId" value="%{loginId}"/>
 <s:hidden name="password" value="%{password}"/>
 <s:hidden name="familyName" value="%{familyName}"/>

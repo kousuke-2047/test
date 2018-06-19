@@ -59,10 +59,10 @@ public class ItemDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			int num = number*4-4;
 
+				int num = number*4-4;
+				ps.setInt(1,num);
 
-			ps.setInt(1,num);
 
 			ResultSet rs =ps.executeQuery();
 
@@ -78,4 +78,36 @@ public class ItemDAO {
 		}
 		return itemdto;
 	}
+
+
+	public ArrayList<ItemDTO> getItemInfo(int number,int forward)throws SQLException{
+
+		ArrayList<ItemDTO> itemdto = new ArrayList<ItemDTO>();
+
+		String sql ="select * from item limit ?,4";
+
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+
+				int num =number*4-8;
+				ps.setInt(1, num);
+
+
+			ResultSet rs =ps.executeQuery();
+
+			while(rs.next()){
+				ItemDTO dto = new ItemDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setItemName(rs.getString("itemName"));
+				dto.setItemPrice(rs.getInt("itemPrice"));
+				itemdto.add(dto);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return itemdto;
+	}
+
 }

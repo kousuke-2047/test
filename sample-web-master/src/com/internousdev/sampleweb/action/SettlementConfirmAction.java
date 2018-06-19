@@ -18,7 +18,7 @@ import com.internousdev.sampleweb.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementConfirmAction extends ActionSupport implements SessionAware{
-
+//☆
 
 	private String categoryId;
 	private Collection<String> checkList;
@@ -60,6 +60,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = new ArrayList<PurchaseHistoryInfoDTO>();
 
 		CommonUtility commonUtility = new CommonUtility();
+
 		String[] productIdList = commonUtility.parseArrayList(productId);
 		String[] productNameList = commonUtility.parseArrayList(productName);
 		String[] productNameKanaList = commonUtility.parseArrayList(productNameKana);

@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware{
 
+	//特に難しくない(inputcheckerを除く)、errorならcreateUser.jspにもどってメッセがくる☆
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;

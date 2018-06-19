@@ -12,6 +12,7 @@ import com.internousdev.sampleweb.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
+	//　軽く読んだけど☆？
 	private String categoryId;
 	private String keywords;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();

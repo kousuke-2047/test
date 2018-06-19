@@ -15,6 +15,7 @@ import com.internousdev.sampleweb.util.Pagination;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListAction extends ActionSupport implements SessionAware{
+	//　☆
 	private String productName;
 	private String productNameKana;
 	private String imageFilePath;

@@ -51,20 +51,26 @@ header{
 
 	<s:iterator value="countList">
 
-		<a href ='<s:url action ="ItemAction"/>'>
+		<a href ='<s:url action ="ItemAction">
+		<s:param name="number" value="%{page}"/>
+		</s:url>'>
 		<s:property value ="page"/>
-		<input type="hidden" name="number" value="<s:property value='page'/>"/>
 		</a>
 		:
 	</s:iterator>
 
 
 	<s:form action ="ItemAction">
-	<s:iterator value="countList">
+	<s:iterator value="countList" status="pageNo">
 		<table>
 			<tr>
+				<s:if test="#pageNO.count==number">
+				<td><s:property value="page"/></td>
+				</s:if>
+				<s:else>
 				<td><input type ="radio" name="number" value="<s:property value='page'/>"/></td>
 				<td><s:property value="page"/></td>
+				</s:else>
 			</tr>
 		</table>
 
@@ -73,6 +79,31 @@ header{
 	<s:submit value="表示"/>
 	</s:form>
 
+	<s:form action="ItemAction">
+		<s:if test="number!=1">
+			<s:iterator value="countList" status="pageNo">
+				<s:if test="#pageNO.count==number">
+					<s:hidden name="forward" value="true"/>
+					<s:hidden name="number" value="<s:property value='page'/>"/>
+
+				</s:if>
+			</s:iterator>
+			<s:submit value="前へ"/>
+		</s:if>
+	</s:form>
+
+
+	<s:if test="number!=1">
+
+
+			<a href ='<s:url action= "ItemAction">
+			<s:param name="number" value="number"/>
+			<s:param name="forward" value="1"/>
+			</s:url>'>
+			前へ
+			</a>
+
+	</s:if>
 
 
 
