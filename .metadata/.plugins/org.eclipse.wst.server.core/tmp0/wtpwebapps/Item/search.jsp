@@ -33,6 +33,18 @@
 		<s:submit value="キーワード検索"/>
 	</s:form>
 
+	<s:form action ="XSearchAction">
+		<select name="category">
+			<option value="">すべて</option>
+			<option value="文具">文具</option>
+			<option value="飲料">飲料</option>
+			<option value="その他">その他</option>
+		</select>
+		<input type ="text" name="word">
+		<input type="hidden" name="number" value="1">
+		<s:submit value="ダブル検索"/>
+	</s:form>
+
 
 
 </body>

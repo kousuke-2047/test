@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 import com.item.dao.WSearchDAO;
 import java.util.Map;
-import com.item.dto.SearchDTO;
+import com.item.dto.ItemDTO;
 import java.util.ArrayList;
 import com.item.dto.ItemCDTO;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class WSearchAction extends ActionSupport implements SessionAware{
 	private WSearchDAO dao = new WSearchDAO();
 	private String word;
 	private int number;
-	private ArrayList<SearchDTO> itemList = new ArrayList<SearchDTO>();
+	private ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
 	private ArrayList<ItemCDTO> countList = new ArrayList<ItemCDTO>();
 
 	public String execute()throws SQLException{
@@ -32,7 +32,7 @@ public class WSearchAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String,Object>session){
 		this.session = session;
 	}
-	public ArrayList<SearchDTO> getItemList(){
+	public ArrayList<ItemDTO> getItemList(){
 		return itemList;
 	}
 	public ArrayList<ItemCDTO> getCountList(){

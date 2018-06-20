@@ -1,6 +1,6 @@
 package com.item.dao;
 
-import com.item.dto.SearchDTO;
+import com.item.dto.ItemDTO;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,10 +14,10 @@ public class WSearchDAO {
 	private DBConnector dbc = new DBConnector();
 	private Connection con = dbc.getConnection();
 
-	public ArrayList<SearchDTO> SearchA(String word,int number){
+	public ArrayList<ItemDTO> SearchA(String word,int number){
 
 		String sql = "select * from item where itemName like '%"+word+"%' limit ?,4";
-		ArrayList<SearchDTO> item = new ArrayList<SearchDTO>();
+		ArrayList<ItemDTO> item = new ArrayList<ItemDTO>();
 
 
 		try{
@@ -32,7 +32,7 @@ public class WSearchDAO {
 
 
 			while(rs.next()){
-				SearchDTO dto = new SearchDTO();
+				ItemDTO dto = new ItemDTO();
 				dto.setId(rs.getInt("id"));
 				dto.setItemName(rs.getString("itemName"));
 				dto.setItemPrice(rs.getInt("itemPrice"));
@@ -60,7 +60,7 @@ public class WSearchDAO {
 
 			int f =itemcdto.getCount()/4+1;
 
-			for(int i =1;i<f;i++){
+			for(int i =1;i<=f;i++){
 				ItemCDTO dto =new ItemCDTO();
 				dto.setPage(i);
 				count.add(dto);

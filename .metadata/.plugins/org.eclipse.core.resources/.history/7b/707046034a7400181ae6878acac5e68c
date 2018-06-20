@@ -1,0 +1,28 @@
+package com.item.dao;
+
+import com.item.util.DBConnector;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import com.item.dto.ItemDTO;
+import com.item.dto.ItemCDTO;
+
+public class XSearchDAO {
+
+	public ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
+	public ArrayList<ItemCDTO> countList= new ArrayList<ItemCDTO>();
+
+	public ArrayList<ItemCDTO> getInfo(int number){
+
+	}
+	public ArrayList<ItemCDTO> getInfoByC(int number,String category){
+
+	}
+	public ArrayList<ItemCDTO> getInfoByW(int number,String word){
+
+	}
+	public ArrayList<ItemCDTO> getInfoByX(int number,String category,String word){
+
+	}

@@ -1,0 +1,50 @@
+package com.item.dao;
+
+import com.item.util.DBConnector;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import com.item.dto.ItemDTO;
+import com.item.dto.ItemCDTO;
+
+public class XSearchDAO {
+
+	public ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
+	public ArrayList<ItemCDTO> countList= new ArrayList<ItemCDTO>();
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+	public ArrayList<ItemDTO> getInfo(int number){
+
+		String sql = "select * from item limit ?,4";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, number);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				ItemDTO dto = new ItemDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setItemName(rs.getString("itemName"));
+				dto.setCategory(rs.getString("category"));
+				dto.setItemPrice(rs.getInt("itemPrice"));
+				itemList.add(dto);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return itemList;
+	}
+	public ArrayList<ItemCDTO> getInfoByC(int number,String category){
+
+	}
+	public ArrayList<ItemCDTO> getInfoByW(int number,String word){
+
+	}
+	public ArrayList<ItemCDTO> getInfoByX(int number,String category,String word){
+
+	}
+}

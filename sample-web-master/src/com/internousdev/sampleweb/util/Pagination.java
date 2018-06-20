@@ -16,12 +16,13 @@ public class Pagination {
 		paginationDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));
 		// 現在のページ番号　イニシャライズなので１で固定
 		paginationDTO.setCurrentPageNo(1);
-		// 全レコード数
+
+		// 全レコード数　(最後の番号)
 		paginationDTO.setTotalRecordSize(list.size() - 1);
 
 		// 現在のページ番号に対する開始レコード番号（オフセット）　左上の番号
 		paginationDTO.setStartRecordNo(pageSize * (paginationDTO.getCurrentPageNo() -1));
-		// 現在のページ番号に対する終了レコード番号　右下の番号
+		// 現在のページ番号に対する終了レコード番号　右下の番号　存在しなくても右下に番号をつけてる
 		paginationDTO.setEndRecordNo(paginationDTO.getStartRecordNo() + (pageSize - 1));
 
 

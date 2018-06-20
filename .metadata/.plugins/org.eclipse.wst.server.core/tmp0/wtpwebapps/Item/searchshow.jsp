@@ -36,14 +36,20 @@
 	</s:form>
 
 
-	<s:form action ="CSearchAction">
-	<s:iterator value="countList">
-		<input type = "radio" name="number" value="<s:property value='page'/>"/>
-		<s:property value="page"/>
+	<s:iterator value="countList" status="pageNo">
+		<s:if test="number==#pageNo.count">
+			<s:property value="page"/>:
+		</s:if>
+		<s:else>
+			<a href = '<s:url action="CSearchAction">
+				<s:param name="number" value="%{page}"/>
+				<s:param name="category" value="#session.category"/>
+			</s:url>'>
+				<s:property value="page"/>
+			</a>
+			:
+		</s:else>
 	</s:iterator>
-	<input type="hidden" name="category" value="<s:property value='session.category'/>">
-	<s:submit value="ページ移動"/>
-	</s:form>
 
 </body>
 </html>

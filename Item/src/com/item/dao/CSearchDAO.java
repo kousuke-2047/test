@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.item.util.DBConnector;
-import com.item.dto.SearchDTO;
+import com.item.dto.ItemDTO;
 import com.item.dto.ItemCDTO;
 
 
@@ -16,10 +16,10 @@ public class CSearchDAO {
 	private Connection con = dbc.getConnection();
 	private ItemCDTO dto = new ItemCDTO();
 
-	public ArrayList<SearchDTO> SearchC(String category,int number){
+	public ArrayList<ItemDTO> SearchC(String category,int number){
 
 		String sql = "select * from item where category = ? limit ?,4";
-		ArrayList<SearchDTO> item =new ArrayList<SearchDTO>();
+		ArrayList<ItemDTO> item =new ArrayList<ItemDTO>();
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class CSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				SearchDTO dto = new SearchDTO();
+				ItemDTO dto = new ItemDTO();
 				dto.setId(rs.getInt("id"));
 				dto.setItemName(rs.getString("itemName"));
 				dto.setItemPrice(rs.getInt("itemPrice"));

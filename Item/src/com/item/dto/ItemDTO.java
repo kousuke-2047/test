@@ -5,6 +5,7 @@ public class ItemDTO {
 	private int id;
 	private String itemName;
 	private int itemPrice;
+	private String category;
 
 	public int getId(){
 		return id;
@@ -23,6 +24,12 @@ public class ItemDTO {
 	}
 	public void setItemPrice(int itemPrice){
 		this.itemPrice = itemPrice;
+	}
+	public String getCategory(){
+		return category;
+	}
+	public void setCategory(String category){
+		this.category = category;
 	}
 
 }

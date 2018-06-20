@@ -17,6 +17,7 @@ public class ItemAction extends ActionSupport implements SessionAware{
 	public Map<String ,Object>session;
 	private int number;
 	private int forward;
+	private int nextflg;
 
 
 	private ArrayList<ItemCDTO> countList = new ArrayList<ItemCDTO>();
@@ -26,14 +27,30 @@ public class ItemAction extends ActionSupport implements SessionAware{
 		String result = SUCCESS;
 
 
+
+		countList = itemdao.Itemcount();
+
 		if(forward==1){
-			itemList = itemdao.getItemInfo(number,forward);
 			number--;
+			itemList = itemdao.getItemInfo(number);
+		}else if(nextflg==1){
+			number++;
+			itemList = itemdao.getItemInfo(number);
+		}else if(nextflg==2){
+			number=countList.size();
+			itemList =itemdao.getItemInfo(number);
+
 		}else{
 			itemList = itemdao.getItemInfo(number);
 		}
 
-		countList = itemdao.Itemcount();
+
+
+		if(countList.size()!=number){
+			session.put("next", true);
+		}else{
+			session.put("next", false);
+		}
 
 		return result;
 	}
@@ -57,6 +74,12 @@ public class ItemAction extends ActionSupport implements SessionAware{
 	}
 	public void setForward(int forward){
 		this.forward = forward;
+	}
+	public int getNextflg(){
+		return nextflg;
+	}
+	public void setNextflg(int nextflg){
+		this.nextflg = nextflg;
 	}
 
 }

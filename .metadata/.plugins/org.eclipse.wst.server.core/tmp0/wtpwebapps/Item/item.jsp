@@ -34,6 +34,7 @@ header{
 		<tr>
 			<td>NO</td>
 			<td>商品名</td>
+			<td>カテゴリ</td>
 			<td>値段</td>
 		</tr>
 
@@ -41,69 +42,81 @@ header{
 		<tr>
 			<td><input type ="radio" name="itemid" value="<s:property value='id'/>"/>
 			<s:property value = "id"/></td>
-			<td><s:property value = "itemName"/></td>
-			<td><s:property value = "itemPrice"/></td>
+			<td><s:property value ="itemName"/></td>
+			<td><s:property value ="category"/></td>
+			<td><s:property value ="itemPrice"/></td>
 		</tr>
 		</s:iterator>
 		<s:submit value ="商品表示"/>
 	</table>
 	</s:form>
 
-	<s:iterator value="countList">
 
+
+	<s:if test="number==1">
+		最初へ:
+	</s:if>
+	<s:else>
 		<a href ='<s:url action ="ItemAction">
-		<s:param name="number" value="%{page}"/>
+		<s:param name="number" value="1"/>
 		</s:url>'>
-		<s:property value ="page"/>
-		</a>
+		最初へ</a>
 		:
-	</s:iterator>
-
-
-	<s:form action ="ItemAction">
-	<s:iterator value="countList" status="pageNo">
-		<table>
-			<tr>
-				<s:if test="#pageNO.count==number">
-				<td><s:property value="page"/></td>
-				</s:if>
-				<s:else>
-				<td><input type ="radio" name="number" value="<s:property value='page'/>"/></td>
-				<td><s:property value="page"/></td>
-				</s:else>
-			</tr>
-		</table>
-
-
-	</s:iterator>
-	<s:submit value="表示"/>
-	</s:form>
-
-	<s:form action="ItemAction">
-		<s:if test="number!=1">
-			<s:iterator value="countList" status="pageNo">
-				<s:if test="#pageNO.count==number">
-					<s:hidden name="forward" value="true"/>
-					<s:hidden name="number" value="<s:property value='page'/>"/>
-
-				</s:if>
-			</s:iterator>
-			<s:submit value="前へ"/>
-		</s:if>
-	</s:form>
+	</s:else>
 
 
 	<s:if test="number!=1">
-
-
 			<a href ='<s:url action= "ItemAction">
 			<s:param name="number" value="number"/>
 			<s:param name="forward" value="1"/>
 			</s:url>'>
 			前へ
 			</a>
-
+			:
 	</s:if>
+	<s:else>
+		前へ:
+	</s:else>
+
+	<s:iterator value="countList" status="pageNo">
+		<s:if test="number==#pageNo.count">
+			<s:property value="page"/>:
+		</s:if>
+		<s:else>
+			<a href ='<s:url action ="ItemAction">
+			<s:param name="number" value="%{page}"/>
+			</s:url>'>
+				<s:property value ="page"/>
+			</a>
+			:
+		</s:else>
+	</s:iterator>
+
+	<s:if test="#session.next==true">
+		<a href ='<s:url action ="ItemAction">
+		<s:param name="number" value="number"/>
+		<s:param name="nextflg" value="1"/>
+		</s:url>'>
+		次へ
+		</a>
+		:
+	</s:if>
+	<s:else>
+	次へ:
+	</s:else>
+
+	<s:if test="#session.next==true">
+		<a href ='<s:url action="ItemAction" >
+		<s:param name="nextflg" value="2"/>
+		</s:url>'>
+		最後へ
+		</a>
+	</s:if>
+	<s:else>
+		最後へ
+	</s:else>
+
+
 
 
 

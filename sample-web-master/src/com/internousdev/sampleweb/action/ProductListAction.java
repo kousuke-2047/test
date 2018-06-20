@@ -33,6 +33,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 
 		ProductInfoDAO productInfoDao = new ProductInfoDAO();
 		productInfoDtoList = productInfoDao.getProductInfoList();
+
 		Pagination pagination = new Pagination();
 		PaginationDTO paginationDTO = pagination.initialize(productInfoDtoList, 9);
 		session.put("totalPageSize", paginationDTO.getTotalPageSize());
