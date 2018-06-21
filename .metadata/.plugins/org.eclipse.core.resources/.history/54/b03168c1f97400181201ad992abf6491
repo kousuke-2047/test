@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/style.css">
+<title>FIHGT</title>
+</head>
+<body>
+	<div class="firstline">
+		<div class="ffirst"></div>
+
+	</div>
+
+	<div class="secondline">
+		<div class="fsecond"></div>
+
+	</div>
+
+	<div class="thirdline">
+		<div class="fthird"></div>
+
+	</div>
+
+	<div class="fourthline">
+		<div class="ffourth"></div>
+
+
+	</div>
+
+	<div class="fifthline">
+		<div class="ffifth"></div>
+
+	</div>
+
+
+</body>
+</html>

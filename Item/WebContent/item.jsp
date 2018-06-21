@@ -84,7 +84,7 @@ header{
 		</s:if>
 		<s:else>
 			<a href ='<s:url action ="ItemAction">
-			<s:param name="number" value="%{page}"/>
+				<s:param name="number" value="%{page}"/>
 			</s:url>'>
 				<s:property value ="page"/>
 			</a>
@@ -115,16 +115,6 @@ header{
 	<s:else>
 		最後へ
 	</s:else>
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

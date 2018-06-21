@@ -1,0 +1,29 @@
+$(function(){
+	$(".firstline").animate({
+		"left":"50"
+	});
+});
+
+$(function(){
+	$(".secondline").animate({
+		"right":"50"
+	});
+});
+
+$(function(){
+	$(".thirdline").animate({
+		"left":"50"
+	});
+});
+
+$(function(){
+	$(".fourthline").animate({
+		"right":"50"
+	});
+});
+
+$(function(){
+	$(".fifthline").animate({
+		"left":"50"
+	});
+});

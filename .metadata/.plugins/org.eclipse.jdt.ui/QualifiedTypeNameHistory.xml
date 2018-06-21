@@ -29,16 +29,16 @@
 <fullyQualifiedTypeName name="com.items.dao.ItemSDAO"/>
 <fullyQualifiedTypeName name="com.items.util.DBConnector"/>
 <fullyQualifiedTypeName name="com.item.dao.CSearchAction"/>
-<fullyQualifiedTypeName name="com.item.util.DBConnector"/>
 <fullyQualifiedTypeName name="com.item.dao.CSearchDAO"/>
 <fullyQualifiedTypeName name="com.item.dto.SearchDTO"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
 <fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
 <fullyQualifiedTypeName name="com.item.dao.WSearchDAO"/>
 <fullyQualifiedTypeName name="com.item.dto.ItemCDTO"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.item.util.DBConnector"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>

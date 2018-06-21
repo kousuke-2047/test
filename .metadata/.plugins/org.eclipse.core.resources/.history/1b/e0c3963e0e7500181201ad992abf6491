@@ -1,0 +1,8 @@
+$(function(){
+	$('.firstline').animate({
+		'marginLeft': '200px'
+	},
+	 function(){
+	    alert("消えました")
+	});
+});

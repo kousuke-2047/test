@@ -1,0 +1,267 @@
+@CHARSET "UTF-8";
+.namebox{
+	height:25px;
+	width:200px;
+	border:1px solid black;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+.namebox ul li{
+	list-style:none;
+	float:left;
+	padding-left:33px;
+	position:relative;
+	bottom:15px;
+	right:60px;
+}
+.datebox{
+	height:50px;
+	width:200px;
+	border:1px solid black;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.enemybox{
+	height:90px;
+	width:200px;
+	background-color:white;
+}
+.textbox{
+	height:75px;
+	width:200px;
+	border:1px solid black;
+	border-radius:5px;
+}
+.mainbox{
+	height:150px;
+	width:400px;
+	padding-left:50px;
+}
+.firstline{
+	width:250px;
+	height:10px;
+}
+.secondline{
+	width:250px;
+	height:10px;
+}
+.thirdline{
+	width:250px;
+	height:10px;
+}
+.fourthline{
+	width:250px;
+	height:10px;
+}
+.fifthline{
+	width:250px;
+	height:10px;
+}
+.ffirst{
+	width:30px;
+	height:10px;
+	background-color:black;
+	float:left;
+}
+.fsecond{
+	width:10px;
+	height:10px;
+	background-color:black;
+	float:left;
+
+}
+.fthird{
+	width:20px;
+	height:10px;
+	background-color:black;
+	float:left;
+}
+.ffourth{
+	width:10px;
+	height:10px;
+	background-color:black;
+	float:left;
+}
+.ffifth{
+	width:10px;
+	height:10px;
+	background-color:black;
+	float:left;
+}
+.ifirst{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.isecond{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:40px;
+	float:left;
+}
+.ithird{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:30px;
+	float:left;
+}
+.ifourth{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:40px;
+	float:left;
+}
+.ififth{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:30px;
+	float:left;
+}
+.hfirst{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+	text-align:center;
+	font-size:10px;
+	color:white;
+}
+.hsecond{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:20px;
+	float:left;
+	text-align:center;
+	font-size:10px;
+}
+.hthird{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:20px;
+	float:left;
+}
+.hfourth{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:20px;
+	float:left;
+	text-align:center;
+		font-size:10px;
+}
+.hfifth{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+	text-align:center;
+	font-size:10px;
+}
+.gfirst{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.gsecond{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.gthird{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.gfourth{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.gfifth{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:10px;
+	float:left;
+}
+.tfirst{
+	width:30px;
+	height:10px;
+	background-color:black;
+	margin-left:160px;
+}
+.tsecond{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:170px;
+}
+.tthird{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:170px;
+}
+.tfourth{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:170px;
+}
+.tfifth{
+	width:10px;
+	height:10px;
+	background-color:black;
+	margin-left:170px;
+}
+.box{
+	width:10px;
+	height:10px;
+	background-color:white;
+	margin-left:10px;
+}
+.minibox{
+	width:5px;
+	height:10px;
+	background-color:white;
+	margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

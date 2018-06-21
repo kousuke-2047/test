@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+.namebox{
+	height:25px;
+	width:200px;
+	border:1px solid black;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+.namebox ul li{
+	list-style:none;
+	float:left;
+	padding-left:20px;
+	position:relative;
+	bottom:15px;
+	right:20px;
+}
+.datebox{
+	height:50px;
+	width:200px;
+	border:1px solid black;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.enemybox{
+	height:90px;
+	width:200px;
+	background-color:white;
+}
+.textbox{
+	height:75px;
+	width:200px;
+	border:1px solid black;
+	border-radius:5px;
+}

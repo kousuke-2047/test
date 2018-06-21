@@ -1,0 +1,29 @@
+$(function(){
+	$(".firstline").animete({
+		"left":"50"
+	});
+});
+
+$(function(){
+	$(".secondline").animete({
+		"right":"50"
+	});
+});
+
+$(function(){
+	$(".thirdline").animete({
+		"left":"50"
+	});
+});
+
+$(function(){
+	$(".fourthline").animete({
+		"right":"50"
+	});
+});
+
+$(function(){
+	$(".fifthline").animete({
+		"left":"50"
+	});
+});

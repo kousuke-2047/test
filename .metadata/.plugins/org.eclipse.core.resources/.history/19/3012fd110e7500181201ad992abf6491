@@ -1,0 +1,7 @@
+$(function(){
+	$('.firstline').animate({
+		'marginLeft': '200px'
+	}).animate({
+		'marginTop':'200px'
+	});
+});

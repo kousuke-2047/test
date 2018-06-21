@@ -58,12 +58,22 @@ public class WSearchDAO {
 
 			itemcdto.setCount(rs.getInt(1));
 
-			int f =itemcdto.getCount()/4+1;
+			if(itemcdto.getCount()%4==0){
+				int f = itemcdto.getCount()/4;
+				for(int i=1;i<=f;i++){
+					ItemCDTO dto= new ItemCDTO();
+					dto.setPage(i);
+					count.add(dto);
+				}
 
-			for(int i =1;i<=f;i++){
-				ItemCDTO dto =new ItemCDTO();
-				dto.setPage(i);
-				count.add(dto);
+			}else{
+				int f =itemcdto.getCount()/4+1;
+
+				for(int i =1;i<=f;i++){
+					ItemCDTO dto =new ItemCDTO();
+					dto.setPage(i);
+					count.add(dto);
+				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

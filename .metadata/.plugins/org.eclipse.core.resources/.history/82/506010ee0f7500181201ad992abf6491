@@ -1,0 +1,10 @@
+$(function(){
+	$('.firstline').animate({
+		'marginLeft': '200px'
+	},
+	 function(){
+		$('.secondline').animate({
+			'marginRight':'200px'
+		})dequeue();
+	});
+});

@@ -1,0 +1,9 @@
+$.when(
+
+$('.firstline').animate({'marginLeft': '200px'})
+
+).done(function(){
+
+$('secondline').animate({'marginRight': '200px'});
+
+});

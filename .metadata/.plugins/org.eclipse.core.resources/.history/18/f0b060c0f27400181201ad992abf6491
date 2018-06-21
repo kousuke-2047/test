@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+.namebox{
+	height:30px;
+	width:200px;
+	border:1px solid black;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
