@@ -1,0 +1,24 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+
+import com.oldmove.dao.SelectmonsterDAO;
+import com.oldmove.dto.SelectmonsterDTO;
+
+public class SelectmonsterAction extends ActionSupport{
+
+private SelectmonsterDAO dao = new SelectmonsterDAO();
+private ArrayList<SelectmonsterDTO> selectmonsterList = new ArrayList<SelectmonsterDTO>();
+private int menber;
+
+	public String execute(){
+
+
+		selectmonsterList = dao.getselectInfo(menber);
+
+		String result = SUCCESS;
+		return result;
+	}
+
+}

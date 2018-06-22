@@ -1,0 +1,5 @@
+package com.oldmove.util;
+
+public class RandomInt {
+
+}

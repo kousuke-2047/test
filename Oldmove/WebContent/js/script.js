@@ -104,3 +104,9 @@ $(function(){
 			});
 });
 
+$(function(){
+	$(".selectbutton").click(function(){
+		$(".messagebox").hide();
+	});
+});
+

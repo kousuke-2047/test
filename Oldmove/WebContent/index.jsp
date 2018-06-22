@@ -41,9 +41,12 @@
 		移動しますか？
 		<br><br>
 
+		<a href ='<s:url action="SelectmonsterAction"/>'>
 			<div class="selectbutton">
 			はい
 			</div>
+		</a>
+
 
 			<div class="selectbutton">
 			いいえ

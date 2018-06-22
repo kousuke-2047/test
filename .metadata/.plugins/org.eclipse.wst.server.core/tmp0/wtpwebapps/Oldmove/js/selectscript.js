@@ -1,0 +1,39 @@
+$(document).ready(function(){
+	$(".messagebox").hide();
+});
+
+$(function(){
+	$(".selectbutton").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$(".selectbutton").click(function(){
+		$(".messagebox").hide();
+	});
+});
+
+$(function(){
+	$(".selectbox").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$(".selectbox").click(function(){
+		$(".messagebox").fadeIn(0);
+	});
+});

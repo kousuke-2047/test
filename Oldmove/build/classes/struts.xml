@@ -10,5 +10,9 @@
 	<result name="success">fight.jsp</result>
 	</action>
 
+	<action name="SelectmonsterAction" class="com.oldmove.action.SelectmonsterAction" method="execute">
+	<result name="success">selectmonster.jsp</result>
+	</action>
+
 	</package>
 </struts>

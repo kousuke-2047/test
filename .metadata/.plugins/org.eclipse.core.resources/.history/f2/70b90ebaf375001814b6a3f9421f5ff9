@@ -1,0 +1,12 @@
+package com.oldmove.util;
+
+public class RandomInt {
+
+	public int getSelectmenber(int menbers){
+
+		int randomint = (int)Math.random()*menbers+1;
+
+		return randomint;
+	}
+
+}
