@@ -1,7 +1,0 @@
-$(function(){
-	$('.firstline').animate({
-		'marginLeft': '200px'
-	})$('.secondline').animate({
-		"marginRight":"200px"
-	});
-});

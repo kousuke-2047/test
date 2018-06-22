@@ -1,0 +1,6 @@
+$(".firstline").click(function(){
+	$(".firstline").animate({left:300});
+	$(".firstline").promise().done(function() {
+		$(".secondline").text("DONE!")
+	});
+});

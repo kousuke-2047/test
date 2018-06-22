@@ -1,0 +1,40 @@
+set names utf8;
+set foreign_key_checks =0;
+drop database if exists oldmove;
+
+create database if not exists oldmove;
+use ecsite2;
+
+drop table if exists battlemonster;
+
+create table battlemonster(
+	id int not null primary key auto_increment,
+	name varchar(16),
+	menber int,
+	power int,
+	guard int,
+	hp int,
+	maxhp int,
+	mp int,
+	maxmp int,
+	actiontype int);
+
+drop table if exists actiontype;
+
+create table actiontype(
+	id int not null primary key auto_increment,
+	attack int,
+	defense int,
+	heal int,
+	spell int,
+	critical int);
+
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("スライム",1,10,5,20,20,0,0,1);
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("ドラキー",1,12,5,22,22,0,0,1);
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("ももんじゃ",1,15,7,25,25,0,0,1);
+
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("オーク",2,10,5,20,20,0,0,1);
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("ばくだんいわ",2,10,5,20,20,0,0,1);
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype)values("ドラゴン",2,10,5,20,20,0,0,1);
+
+	insert into actiontype(attack,defense,heal,spell,critical)values(3,0,0,0,1);

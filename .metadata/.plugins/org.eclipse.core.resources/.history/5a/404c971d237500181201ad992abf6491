@@ -1,0 +1,50 @@
+$(function(){
+	$(".firstline").hide();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function(){
+	$(".firstline").animate({'marginLeft':'100px'});
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".secondline").animate({'marginLeft':'100px'
+			});
+	},200);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".thirdline").animate({'marginLeft':'100px'
+			});
+	},400);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fourthline").animate({'marginLeft':'100px'
+			});
+	},600);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fifthline").animate({'marginLeft':'100px'
+			});
+	},800);
+});
+

@@ -1,0 +1,11 @@
+$(function(){
+	$(".firstline").animate({'marginLeft':'300px'});
+});
+
+
+$(function(){
+	setTimeout(function(){
+		$(".firstline").animate({'marginLeft':'300px'
+			},1000);
+	});
+});

@@ -1,0 +1,123 @@
+
+
+$(function(){
+	setTimeout(function(){
+		$(".ffirst").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".ifirst").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".gfirst").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".hfirst").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".tfirst").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fsecond").css("background-color","black");
+	},300);
+});
+
+
+$(function(){
+	setTimeout(function(){
+		$(".isecond").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".gsecond").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".hsecond").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".tsecond").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fthird").css("background-color","black");
+		$(".ithird").css("background-color","black");
+		$(".gthird").css("background-color","black");
+		$(".hthird").css("background-color","black");
+		$(".tthird").css("background-color","black");
+	},300);
+});
+
+
+
+$(function(){
+	setTimeout(function(){
+		$(".fourthline").css("background-color","black");
+	},300);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fifthline").css("background-color","black");
+	},300);
+});
+
+
+$(function(){
+	setTimeout(function(){
+		$(".firstline").animate({'marginLeft':'100px'
+			});
+	},1000);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".secondline").animate({'marginLeft':'100px'
+			});
+	},1200);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".thirdline").animate({'marginLeft':'100px'
+			});
+	},1400);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fourthline").animate({'marginLeft':'100px'
+			});
+	},1600);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".fifthline").animate({'marginLeft':'100px'
+			});
+	},1800);
+});
+

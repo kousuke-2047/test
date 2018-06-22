@@ -1,0 +1,3 @@
+$(function(){
+	$(".firstline").animate({'marginLeft':'300px'});
+});

@@ -7,26 +7,63 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <title>cssの遊び件練習</title>
 </head>
 <body>
 
-	<div class= "namebox">
-		<ul>
-			<li>aaa</li>
-			<li>iii</li>
-			<li>uuu</li>
-		</ul>
+	<script type="text/javascript" src="./js/script.js">
+	</script>
+
+	<div class ="nameleft">
 	</div>
-	<div class="datebox">
+
+	<div class="namecenter">
 	</div>
+
+	<div class="nameright">
+	</div>
+
+	<div class="dateleft">
+	</div>
+
+	<div class="datecenter">
+	</div>
+
+	<div class="dateright">
+	</div>
+
+
 	<div class="enemybox">
+
+		<div class="messagebox">
+		移動しますか？
+		<br><br>
+
+			<div class="selectbutton">
+			はい
+			</div>
+
+			<div class="selectbutton">
+			いいえ
+			</div>
+
+
+		</div>
+
 	</div>
 	<div class="textbox">
 
-	<a href = '<s:url action="FightAction"/>'>
-	FIGHT
-	</a>
+		<a href = '<s:url action="FightAction"/>'>
+		FIGHT
+		</a>
+
+		<div class="button">
+		練習
+		</div>
+
+
 	</div>
 
 

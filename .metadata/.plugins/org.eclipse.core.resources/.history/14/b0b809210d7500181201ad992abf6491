@@ -1,5 +1,0 @@
-$(function(){
-	$('.firstline').animate({
-		'marginTop': '200px'
-	});
-});

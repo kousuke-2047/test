@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="CommonUtility" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="CommonUtility"/>
+			<item value="devideList"/>
 			<item value="intenous"/>
 			<item value="session.put(&quot;loginDTOList&quot;, loginDTOList);"/>
 			<item value="&amp;&amp; this.password.equals(loginDTOList.get(0).getPassword())){"/>
 			<item value="if(this.username.equals(loginDTOList.get(0).getUsername())"/>
 			<item value="loginDTOList=dao.select(username, password);"/>
 			<item value="private Map&lt;String, Object&gt; session;"/>
-			<item value="private List&lt;LoginDTO&gt; loginDTOList = new ArrayList&lt;LoginDTO&gt;();"/>
-			<item value="public List&lt;LoginDTO&gt; loginDTOList = new ArrayList&lt;LoginDTO&gt;();"/>
 		</list>
 		<list key="replacehistory">
 		</list>
