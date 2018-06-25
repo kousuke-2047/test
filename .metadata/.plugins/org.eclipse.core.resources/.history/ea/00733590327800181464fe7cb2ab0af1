@@ -1,0 +1,14 @@
+package com.oldmove.dto;
+
+public class BattleDTO {
+
+	private int attackid;
+	private int attackpower;
+	private String attackname;
+
+	private int defenseid;
+	private int defenseguard;
+	private String defensename;
+	private int defensehp;
+
+}

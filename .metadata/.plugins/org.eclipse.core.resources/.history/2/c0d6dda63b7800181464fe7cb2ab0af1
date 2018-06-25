@@ -1,0 +1,49 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+
+import javax.websocket.Session;
+
+import com.oldmove.dao.BattleDAO;
+import com.oldmove.dto.BattleDTO;
+
+
+public class BattleAction extends ActionSupport{
+
+	private int attacknumber;
+	private BattleDAO dao = new BattleDAO();
+	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
+	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
+
+	public String execute(){
+
+		if(attacknumber<=3){
+			attacknumber=0;
+
+		}
+
+
+
+
+		String result;
+		if(){
+			result = ERROR;
+
+		}else{
+
+
+
+
+
+
+			result = SUCCESS;
+		}
+
+
+
+
+		return result;
+	}
+
+}

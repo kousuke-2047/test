@@ -1,0 +1,30 @@
+package com.oldmove.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.oldmove.util.DBConnector;
+import com.oldmove.dto.BattleDTO;
+import java.util.ArrayList;
+
+public class BattleDAO {
+
+	private ArrayList<BattleDTO> battleList = new ArrayList<BattleDTO>();
+	private DBConnector dbc = new DBConnector();
+	private Connection con = dbc.getConnection();
+
+
+	public ArrayList<BattleDTO> getAttackInfo(int menber){
+
+		String sql ="select * from battlemonster where menber=? order by rand()";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+		}
+
+	}
+
+
+}

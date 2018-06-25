@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/battlestyle.css">
+<title>レディ画面</title>
+</head>
+<body>
+
+	<table>
+	<div class="namebox">
+		<ul>
+			<li></li>
+			<s:iterator value="#session.selectmonsterList">
+				<li><s:property value="name"/></li>
+			</s:iterator>
+		</ul>
+	</div>
+
+	<div class="datebox">
+		<ul>
+			<li>ＨＰ</li>
+			<s:iterator value="#session.selectmonsterList">
+				<li><s:property value="hp"/></li>
+			</s:iterator>
+		</ul>
+	</div>
+
+	<div class="textbox">
+
+
+	</div>
+</body>
+</html>

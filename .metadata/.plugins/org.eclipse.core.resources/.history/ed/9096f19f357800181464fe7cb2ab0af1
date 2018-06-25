@@ -1,0 +1,22 @@
+package com.oldmove.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.oldmove.util.DBConnector;
+import com.oldmove.dto.BattleDTO;
+import java.util.ArrayList;
+
+public class BattleDAO {
+
+	private ArrayList<BattleDTO> battleList = new ArrayList<BattleDTO>();
+
+	public ArrayList<BattleDTO> getAttackInfo(int attackid){
+
+		String sql = "";
+
+	}
+
+
+}

@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+.datebox{
+	width:300px;
+	height:75px;
+	border:1px solid black;
+	border-radius:5px;
+}
+.enemybox{
+	height:90px;
+	width:100%;
+	padding-top:10px;
+}
+.messagebox{
+	height:70px;
+	width:180px;
+	margin-left:15px;
+	border-radius:5px;
+	border:1px solid white;
+	color:white;
+	text-align:center;
+}
+
+.selectbutton{
+	height:31px;
+	width:88px;
+	text-align:center;
+	float:left;
+	border:1px solid white;
+	border-top:2px solid white;
+}
+
+
+
+
+.texttopbox{
+	height:30px;
+	width:300px;
+	border:1px solid black;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+.textbottombox{
+	height:90px;
+	width:300px;
+	border:1px solid black;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+td{
+	width:100px;
+	text-align:center;
+}
+
+.selectbox{
+	color:black;
+	width:100%;
+	height:100%;
+}
+
+
+
+
+
+
+

@@ -21,7 +21,7 @@ $(function(){
 });
 
 $(function(){
-	$(".selectbox").hover(
+	$("tr.selectbox").hover(
 			function(){
 				$(this).css("background-color","lightgray");
 				$(this).css("color","red");
@@ -33,7 +33,9 @@ $(function(){
 });
 
 $(function(){
-	$(".selectbox").click(function(){
+	$("tr.selectbox").click(function(){
+		$(".messagebox").css("color","black");
+		$(".messagebox").css("border-color","black");
 		$(".messagebox").fadeIn(0);
 	});
 });

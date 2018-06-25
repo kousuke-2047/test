@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="./js/script.js">
+	<script type="text/javascript" src="./js/selectscript.js">
 	</script>
 
 	<div class="datebox">
@@ -21,22 +21,22 @@
 		</a>
 	</div>
 
-	<div class="enemybox"></div>
+	<div class="enemybox">
 
-	<div class="messagebox">
-
+		<div class="messagebox">
 		いくらかけますか？
-
-		<div class="selectbutton">
-		はい
+			<div class="selectbutton">
+				<a href ='<s:url action="LeadyAction"/>'>
+				はい
+				</a>
+			</div>
+			<div class="selectbutton">
+			いいえ
+			</div>
 		</div>
-
-		<div class="selectbutton">
-		いいえ
-		</div>
-
-
 	</div>
+
+
 
 	<div class="texttopbox">
 
@@ -53,10 +53,10 @@
 
 	<table>
 		<s:iterator value="selectmonsterList">
-			<tr>
-				<div class="selectbox"><td><s:property value="name"/></td></div>
-				<div class="selectbox"><td><s:property value="hp"/></td></div>
-				<div class="selectbox"><td><s:property value="odds"/></td></div>
+			<tr class="selectbox">
+				<td><s:property value="name"/></td>
+				<td><s:property value="hp"/></td>
+				<td><s:property value="odds"/></td>
 
 			</tr>
 		</s:iterator>

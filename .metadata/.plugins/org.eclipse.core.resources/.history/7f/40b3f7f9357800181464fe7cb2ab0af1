@@ -1,0 +1,58 @@
+package com.oldmove.dto;
+
+public class BattleDTO {
+
+	private int attackid;
+	private int attackpower;
+	private String attackname;
+
+	private int defenseid;
+	private int defenseguard;
+	private String defensename;
+	private int defensehp;
+
+	public int getArrackid(){
+		return attackid;
+	}
+	public void setArrackid(int attackid){
+		this.attackid=attackid;
+	}
+	public int getArrackpower(){
+		return attackpower;
+	}
+	public void setArrackpower(int attackpower){
+		this.attackpower=attackpower;
+	}
+	public String getAttackname(){
+		return attackname;
+	}
+	public void setAttackpower(String attackname){
+		this.attackname = attackname;
+	}
+	public int getDefenseid(){
+		return defenseid;
+	}
+	public void setDefenseid(int defenseid){
+		this.defenseid = defenseid;
+	}
+	public int getDefenseguard(){
+		return defenseguard;
+	}
+	public void setDefenseguard(int defenseguard){
+		this.defenseguard = defenseguard;
+	}
+	public String getDefensename(){
+		return defensename;
+	}
+	public void setDefenesename(String defensename){
+		this.defensename = defensename;
+	}
+	public int getDefensehp(){
+		return defensehp;
+	}
+	public void setDefensehp(int defensehp){
+		this.defensehp = defensehp;
+	}
+
+
+}

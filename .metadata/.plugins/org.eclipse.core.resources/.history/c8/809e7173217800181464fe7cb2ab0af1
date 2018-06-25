@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+body{font-family:DRAGON QUEST MONSTERS;}
+
+.namebox{
+    color:black;
+    width:400px;
+    height:35px;
+    border-top:4px solid black;
+    border-left:4px solid black;
+    border-right:4px solid black;
+    font-size:20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+
+}
+
+.namebox li{
+    float:left;
+    list-style:none;
+    position:relative;
+    right:20px;
+    bottom:15px;
+
+}
+
+.namebox li.migi{
+    float:left;
+    list-style:none;
+    padding-left:50px;
+
+
+}
+
+.datebox{
+    color:black;
+    width:400px;
+    height:60px;
+    border:4px solid black;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+.datebox li{
+    float:left;
+    list-style:none;
+    font-size:20px;
+    position:relative;
+    bottom:10px;
+    right:20px;
+}
+.datebox li.migi{
+    float:left;
+    list-style:none;
+    padding-left:50px;
+    font-size:20px;
+}
+.datebox .spacenone li{
+    float:left;
+    list-style:none;
+    font-size:20px;
+    position:relative;
+    bottom:20px;
+    right:20px;
+}
+.datebox .spacenone li.migi{
+    float:left;
+    list-style:none;
+    padding-left:50px;
+    font-size:20px;
+}
+
+img{
+    margin-top:30px;
+    margin-left:80px;
+    margin-bottom:10px;
+}
+.textbox{
+    width:385px;
+    height:80px;
+    border:4px solid black;
+    border-radius:10px;
+    font-size:20px;
+    padding-left:15px;
+}
+.text{
+    margin-top:10px;
+    margin-bottom:10px;
+}
