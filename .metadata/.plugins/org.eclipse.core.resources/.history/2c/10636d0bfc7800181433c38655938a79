@@ -1,0 +1,125 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
+
+
+
+import com.oldmove.dao.BattleDAO;
+import com.oldmove.dto.BattleDTO;
+import com.oldmove.dto.SelectmonsterDTO;
+import com.oldmove.dto.TurnDTO;
+
+
+public class BattleAction extends ActionSupport implements SessionAware{
+
+
+	private BattleDAO dao = new BattleDAO();
+	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
+	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
+	private int attacknumber;
+	private int damage;
+	public Map<String ,Object>session;
+	private ArrayList<SelectmonsterDTO> displayList = new ArrayList<SelectmonsterDTO>();
+	private ArrayList<TurnDTO> turnList = new ArrayList<TurnDTO>();
+
+
+
+	public String execute(){
+
+		displayList =dao.getDisplayList(session.get("menber"));
+
+
+
+		if(attacknumber==0){
+			turnList= dao.getTurnInfo(session.get("menber"));
+			session.put("firstid",turnList.get(0).getFirstid());
+			session.put("secondid",turnList.get(1).getSecondid());
+			session.put("thirdid",turnList.get(2).getThirdid());
+			attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+		}else if(attacknumber==1){
+
+			attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+
+			if(attackList.size()<=2){
+				attacknumber++;
+			}
+
+		}else if(attacknumber==2){
+
+			attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
+
+		}else if(attacknumber==3){
+			attacknumber=0;
+			turnList= dao.getTurnInfo(session.get("menber"));
+			session.put("firstid",turnList.get(0).getFirstid());
+			session.put("secondid",turnList.get(0).getSecondid());
+			session.put("thirdid",turnList.get(0).getThirdid());
+			attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+		}
+
+		String result;
+		if((displayList.get(0).getHp()==0 && displayList.get(1).getHp()==0) ||
+				(displayList.get(0).getHp()==0 && displayList.get(2).getHp()==0) ||
+				(displayList.get(1).getHp()==0 && displayList.get(2).getHp()==0)){
+			result = ERROR;
+			//試合終了
+		}else{
+			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(attacknumber).getAttackid());
+
+			damage =attackList.get(attacknumber).getAttackpower() - defenseList.get(0).getDefenseguard();
+
+			if(damage>=defenseList.get(0).getDefensehp()){
+
+				dao.Destroy(defenseList.get(0).getDefenseid());
+
+			}else{
+
+				dao.Resulthp(damage, defenseList.get(0).getDefenseid());
+
+			}
+
+			session.put("damage",damage);
+
+			session.put("attackname", attackList.get(attacknumber).getAttackname());
+
+			session.put("defensename", defenseList.get(0).getDefensename());
+
+			attacknumber++;
+
+			result = SUCCESS;
+		}
+		return result;
+	}
+	public int getAttacknumber(){
+		return attacknumber;
+	}
+	public void setAttacknumber(int attacknumber){
+		this.attacknumber = attacknumber;
+	}
+	public int getDamage(){
+		return damage;
+	}
+	public void setDamage(int damage){
+		this.damage = damage;
+	}
+	public void setSession(Map<String ,Object>session){
+		this.session = session;
+	}
+	public ArrayList<BattleDTO> getAttackList(){
+		return this.attackList;
+	}
+	public ArrayList<BattleDTO> getDefenseList(){
+		return this.defenseList;
+	}
+	public ArrayList<SelectmonsterDTO> getDisplayList(){
+		return this.displayList;
+	}
+	public ArrayList<TurnDTO> getturnList(){
+		return this.turnList;
+	}
+
+
+}

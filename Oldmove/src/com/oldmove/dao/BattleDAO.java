@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.oldmove.util.DBConnector;
 import com.oldmove.dto.BattleDTO;
+import com.oldmove.dto.SelectmonsterDTO;
 import java.util.ArrayList;
 
 public class BattleDAO {
@@ -14,22 +15,24 @@ public class BattleDAO {
 	private Connection con = dbc.getConnection();
 
 
-	public ArrayList<BattleDTO> getAttackInfo(int menber){
+	public ArrayList<BattleDTO> getAttackInfo(Object menber,Object someid){
 
 		ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
-		String sql ="select * from battlemonster where menber=? order by rand()";
+		String sql ="select * from battlemonster where menber=? and id=? and hp not in(0)";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, menber);
+			ps.setObject(1, menber);
+			ps.setObject(2, someid);
 			ResultSet rs = ps.executeQuery();
 
-			while(rs.next()){
+			if(rs.next()){
 				BattleDTO dto = new BattleDTO();
 				dto.setAttackid(rs.getInt("id"));
 				dto.setAttackpower(rs.getInt("power"));
 				dto.setAttackname(rs.getString("name"));
 				dto.setAttackhp(rs.getInt("hp"));
+				dto.setAttackmp(rs.getInt("mp"));
 				attackList.add(dto);
 			}
 		}catch(SQLException e){
@@ -38,12 +41,12 @@ public class BattleDAO {
 		return attackList;
 
 	}
-	public ArrayList<BattleDTO> getDefenseInfo(int menber,int attackid){
+	public ArrayList<BattleDTO> getDefenseInfo(Object menber,int attackid){
 		ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
-		String sql = "select * from battlemonster where menber=? not in(?) order by rand() limit 1";
+		String sql = "select * from battlemonster where menber=? and id not in(?) and hp not in(0)order by rand() limit 1";
 
 		try{PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, menber);
+			ps.setObject(1, menber);
 			ps.setInt(2, attackid);
 			ResultSet rs = ps.executeQuery();
 
@@ -59,6 +62,90 @@ public class BattleDAO {
 			e.printStackTrace();
 		}
 		return defenseList;
+	}
+
+	public ArrayList<SelectmonsterDTO> getDisplayList(Object menber){
+
+		ArrayList<SelectmonsterDTO> displayList = new ArrayList<SelectmonsterDTO>();
+		String sql = "select * from battlemonster where menber =?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setObject(1, menber);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				SelectmonsterDTO dto = new SelectmonsterDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setHp(rs.getInt("hp"));
+				dto.setMp(rs.getInt("mp"));
+				dto.setName(rs.getString("name"));
+				dto.setFilepath(rs.getString("filepath"));
+				dto.setFilename(rs.getString("filename"));
+				displayList.add(dto);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	return displayList;
+	}
+
+	public void Resulthp(int damage,int id){
+		String sql = "update battlemonster set hp = hp-? where id=?";
+
+		try{
+			PreparedStatement ps= con.prepareStatement(sql);
+			ps.setInt(1, damage);
+			ps.setInt(2, id);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	public void Destroy(int id){
+		String sql="update battlemonster set hp =0 where id =?";
+		try{
+			PreparedStatement ps= con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	public ArrayList<BattleDTO> getTurnInfo(Object menber){
+
+		ArrayList<BattleDTO> turnList = new ArrayList<BattleDTO>();
+		String sql ="select * from battlemonster where menber=? order by rand()";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setObject(1, menber);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				BattleDTO dto =new BattleDTO();
+				dto.setAttackid(rs.getInt("id"));
+				turnList.add(dto);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return turnList;
+	}
+	public int checkhpList(Object attackid){
+		String sql ="select * from battlemonster where id =?";
+		BattleDTO dto = new BattleDTO();
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setObject(1, attackid);
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()){
+				dto.setAttackhp(rs.getInt("hp"));
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return dto.getAttackhp();
 	}
 
 

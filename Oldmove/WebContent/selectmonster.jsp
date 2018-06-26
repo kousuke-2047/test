@@ -23,10 +23,15 @@
 
 	<div class="enemybox">
 
+		<s:iterator value="selectmonsterList">
+			<img src='<s:property value="filepath"/>/<s:property value="filename"/>' class ="enemyminibox"/>
+		</s:iterator>
+
 		<div class="messagebox">
 		いくらかけますか？
 			<div class="selectbutton">
 				<a href ='<s:url action="LeadyAction"/>'>
+
 				はい
 				</a>
 			</div>

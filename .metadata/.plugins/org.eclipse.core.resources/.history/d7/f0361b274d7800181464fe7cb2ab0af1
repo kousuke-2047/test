@@ -1,0 +1,20 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.oldmove.dao.BattleDAO;
+
+public class CalculationAction extends ActionSupport{
+
+	private int damage;
+	private BattleDAO dao = new BattleDAO();
+
+
+	public String execute(){
+
+		String result = SUCCESS;
+
+
+
+	}return result;
+
+}

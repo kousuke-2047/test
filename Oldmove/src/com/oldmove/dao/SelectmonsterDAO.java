@@ -32,11 +32,23 @@ public class SelectmonsterDAO {
 				dto.setOdds(rs.getInt("odds"));
 				dto.setFilepath(rs.getString("filepath"));
 				dto.setFilename(rs.getString("filename"));
+				dto.setMenber(rs.getInt("menber"));
 				selectmonsterList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return selectmonsterList;
+	}
+
+	public void Resethp(){
+		String sql="update battlemonster set hp = maxhp";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.execute();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 }

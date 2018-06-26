@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="com.sun.crypto.provider.RSACipher"/>
 <fullyQualifiedTypeName name="com.internousdev.ecsite.util.DateUtil"/>
 <fullyQualifiedTypeName name="com.rensyu.dao.LoginCDAO"/>
-<fullyQualifiedTypeName name="javax.websocket.Session"/>
 <fullyQualifiedTypeName name="com.rensyu.util.DBConnector"/>
 <fullyQualifiedTypeName name="com.rensyu.util.DateUtil"/>
 <fullyQualifiedTypeName name="freemarker.template.utility.DateUtil"/>
@@ -41,4 +40,7 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="com.oldmove.util.DBConnector"/>
+<fullyQualifiedTypeName name="javax.websocket.Session"/>
+<fullyQualifiedTypeName name="com.oldmove.dao.BattleDAO"/>
 </qualifiedTypeNameHistroy>

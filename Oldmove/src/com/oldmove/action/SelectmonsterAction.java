@@ -19,6 +19,7 @@ public Map<String ,Object>session;
 
 	public String execute(){
 
+		dao.Resethp();
 
 		menber =randomint.getSelectmenber(3);
 
@@ -26,6 +27,8 @@ public Map<String ,Object>session;
 		selectmonsterList = dao.getselectInfo(menber);
 
 		session.put("selectmonsterList",selectmonsterList);
+
+		session.put("menber", menber);
 
 		String result = SUCCESS;
 		return result;

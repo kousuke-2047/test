@@ -9,7 +9,7 @@
 <title>レディ画面</title>
 </head>
 <body>
-
+	<a href ='<s:url action="BattleAction"/>'>
 	<table>
 	<tr  class="namebox">
 		<td class="smalltd"></td>
@@ -33,18 +33,19 @@
 	</table>
 	<div class="enemybox">
 
-		<div class="enemyminibox"></div>
-		<div class="enemyminibox"></div>
-		<div class="enemyminibox"></div>
+		<s:iterator value="#session.selectmonsterList">
+			<img src ='<s:property value="filepath"/>/<s:property value="filename"/>' class="enemyminibox"/>
+		</s:iterator>
 
 	</div>
 
 
 	<div class="textbox">
 		<s:iterator value="#session.selectmonsterList">
-			<s:property value="name"/>
+			<s:property value="name"/>があらわれた！
 			<br>
 		</s:iterator>
 	</div>
+	</a>
 </body>
 </html>

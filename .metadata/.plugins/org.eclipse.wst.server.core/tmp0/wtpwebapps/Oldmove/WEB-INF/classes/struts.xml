@@ -18,5 +18,10 @@
 	<result name="success">leady.jsp</result>
 	</action>
 
+	<action name ="BattleAction" class="com.oldmove.action.BattleAction" method="execute">
+	<result name ="success">battle.jsp</result>
+	<result name ="error">index.jsp</result>
+	</action>
+
 	</package>
 </struts>

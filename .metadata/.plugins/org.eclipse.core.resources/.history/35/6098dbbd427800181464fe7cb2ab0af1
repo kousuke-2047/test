@@ -1,0 +1,66 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+
+import javax.websocket.Session;
+
+import com.oldmove.dao.BattleDAO;
+import com.oldmove.dto.BattleDTO;
+
+
+public class BattleAction extends ActionSupport{
+
+
+	private BattleDAO dao = new BattleDAO();
+	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
+	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
+	private int menber;
+	private int attacknumber;
+	private int damage;
+
+
+
+	public String execute(){
+
+		if(attacknumber==3 || attacknumber==0){
+			attacknumber=0;
+			attackList.clear();
+			attackList=dao.getAttackInfo(menber);
+		}
+
+		String result;
+		if(attackList.get(0).getAttackhp()==0 && attackList.get(1).getAttackhp()==0 ||
+				attackList.get(0).getAttackhp()==0 && attackList.get(2).getAttackhp()==0 ||
+				attackList.get(1).getAttackhp()==0 && attackList.get(2).getAttackhp()==0){
+			result = ERROR;
+			//試合終了
+		}else{
+			defenseList=dao.getDefenseInfo(menber, attackList.get(attacknumber).getAttackid());
+
+			damage =attackList.get(attacknumber).getAttackpower() - defenseList.get(0).getDefenseguard();
+
+			result = SUCCESS;
+		}
+		return result;
+	}
+	public int getMenber(){
+		return menber;
+	}
+	public void setMenber(int menber){
+		this.menber = menber;
+	}
+	public int getAttacknumber(){
+		return attacknumber;
+	}
+	public void setAttacknumber(int attacknumber){
+		this.attacknumber = attacknumber;
+	}
+	public int getDamage(){
+		return damage;
+	}
+	public void setDamage(int damage){
+		this.damage = damage;
+	}
+
+}

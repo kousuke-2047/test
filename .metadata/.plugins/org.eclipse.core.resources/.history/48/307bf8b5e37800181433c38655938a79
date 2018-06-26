@@ -1,0 +1,42 @@
+$(document).ready(function(){
+	$(".messagebox").hide();
+});
+
+$(function(){
+	$(".selectbutton").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$(".selectbutton").click(function(){
+		$(".messagebox").hide();
+	});
+});
+
+$(function(){
+	$("tr.selectbox").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$("tr.selectbox").click(function(){
+		$("enemyminibox").hide();
+		$(".messagebox").css("color","black");
+		$(".messagebox").css("border-color","black");
+		$(".messagebox").fadeIn(0);
+	});
+});

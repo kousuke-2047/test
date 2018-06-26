@@ -40,9 +40,9 @@ create table actiontype(
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ばくだんいわ",2,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラゴン",2,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
 
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ああああ",3,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("いいいい",3,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("うううう",3,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ああああ",3,10,5,20,20,0,0,1,2,"./images","test1.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("いいいい",3,10,5,20,20,0,0,1,2,"./images","test2.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("うううう",3,10,5,20,20,0,0,1,2,"./images","test3.png");
 
 
 

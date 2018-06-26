@@ -1,0 +1,114 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
+
+
+
+import com.oldmove.dao.BattleDAO;
+import com.oldmove.dto.BattleDTO;
+import com.oldmove.dto.SelectmonsterDTO;
+
+
+public class BattleAction extends ActionSupport implements SessionAware{
+
+
+	private BattleDAO dao = new BattleDAO();
+	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
+	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
+	private int menber;
+	private int attacknumber;
+	private int damage;
+	public Map<String ,Object>session;
+	private ArrayList<SelectmonsterDTO> displayList = new ArrayList<SelectmonsterDTO>();
+
+
+
+	public String execute(){
+
+		displayList =dao.getDisplayList(session.get("menber"));
+
+		if(attacknumber==3 || attacknumber==0){
+			attacknumber=0;
+			attackList.clear();
+			attackList=dao.getAttackInfo(session.get("menber"));
+
+			session.put("attackList",attackList);
+		}else if(attacknumber==3){
+			session.remove("attackList", attackList);
+
+
+
+
+			attackList=dao.getAttackInfo(session.get("menber"));
+			session.put("attackList",attackList);
+		}
+
+		String result;
+		if(attackList.get(0).getAttackhp()==0 && attackList.get(1).getAttackhp()==0 ||
+				attackList.get(0).getAttackhp()==0 && attackList.get(2).getAttackhp()==0 ||
+				attackList.get(1).getAttackhp()==0 && attackList.get(2).getAttackhp()==0){
+			result = ERROR;
+			//試合終了
+		}else{
+			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(attacknumber).getAttackid());
+
+			damage =attackList.get(attacknumber).getAttackpower() - defenseList.get(0).getDefenseguard();
+
+			if(damage>=defenseList.get(0).getDefensehp()){
+
+				dao.Destroy(defenseList.get(0).getDefenseid());
+
+			}else{
+
+				dao.Resulthp(damage, defenseList.get(0).getDefenseid());
+
+			}
+
+			session.put("damage",damage);
+
+			session.put("attackname", attackList.get(attacknumber).getAttackname());
+
+			session.put("defensename", defenseList.get(0).getDefensename());
+
+			attacknumber++;
+
+			result = SUCCESS;
+		}
+		return result;
+	}
+	public int getMenber(){
+		return menber;
+	}
+	public void setMenber(int menber){
+		this.menber = menber;
+	}
+	public int getAttacknumber(){
+		return attacknumber;
+	}
+	public void setAttacknumber(int attacknumber){
+		this.attacknumber = attacknumber;
+	}
+	public int getDamage(){
+		return damage;
+	}
+	public void setDamage(int damage){
+		this.damage = damage;
+	}
+	public void setSession(Map<String ,Object>session){
+		this.session = session;
+	}
+	public ArrayList<BattleDTO> getAttackList(){
+		return this.attackList;
+	}
+	public ArrayList<BattleDTO> getDefenseList(){
+		return this.defenseList;
+	}
+	public ArrayList<SelectmonsterDTO> getDisplayList(){
+		return this.displayList;
+	}
+
+
+}

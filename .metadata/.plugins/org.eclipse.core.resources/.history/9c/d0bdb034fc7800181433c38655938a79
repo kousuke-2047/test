@@ -1,0 +1,28 @@
+package com.oldmove.dto;
+
+public class TurnDTO {
+
+	private int firstid;
+	private int secondid;
+	private int thirdid;
+
+	public int getFirstid(){
+		return firstid;
+	}
+	public void setFirstid(int firstid){
+		this.firstid = firstid;
+	}
+	public int getSecondid(){
+		return secondid;
+	}
+	public void setSecondid(int secondid){
+		this.secondid = secondid;
+	}
+	public int getThirdid(){
+		return thirdid;
+	}
+	public void setThirdid(int thirdid){
+		this.thirdid = thirdid;
+	}
+
+}

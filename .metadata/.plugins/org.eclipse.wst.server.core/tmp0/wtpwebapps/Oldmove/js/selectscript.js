@@ -34,6 +34,7 @@ $(function(){
 
 $(function(){
 	$("tr.selectbox").click(function(){
+		$("img.enemyminibox").hide();
 		$(".messagebox").css("color","black");
 		$(".messagebox").css("border-color","black");
 		$(".messagebox").fadeIn(0);
