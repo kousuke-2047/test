@@ -20,7 +20,11 @@
 
 	<action name ="BattleAction" class="com.oldmove.action.BattleAction" method="execute">
 	<result name ="success">battle.jsp</result>
-	<result name ="error">index.jsp</result>
+	<result name ="input">winner.jsp</result>
+	</action>
+
+	<action name ="BattlefinishAction" class="com.oldmove.action.BattlefinishAction" method="execute">
+	<result name ="success">index.jsp</result>
 	</action>
 
 	</package>

@@ -23,25 +23,61 @@
 
 	<div class="enemybox">
 
-		<s:iterator value="selectmonsterList">
-			<img src='<s:property value="filepath"/>/<s:property value="filename"/>' class ="enemyminibox"/>
-		</s:iterator>
+		<img src='<s:property value="session.filepath"/>/<s:property value="session.firstfilename"/>' class ="enemyfirstbox"/>
+		<img src='<s:property value="session.filepath"/>/<s:property value="session.secondfilename"/>' class ="enemysecondbox"/>
+		<img src='<s:property value="session.filepath"/>/<s:property value="session.thirdfilename"/>' class ="enemythirdbox"/>
 
-		<div class="messagebox">
-		いくらかけますか？
+		<div class="firstmessagebox">
+		<s:property value="session.firstmonstername"/><br>
+		にいくらかけますか？
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				１０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				２０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				５０
+			</a>
 			<div class="selectbutton">
-				<a href ='<s:url action="LeadyAction"/>'>
-
-				はい
-				</a>
+			やめる
 			</div>
+		</div>
+
+		<div class="secondmessagebox">
+		<s:property value="session.secondmonstername"/><br>
+		にいくらかけますか？
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				１０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				２０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				５０
+			</a>
 			<div class="selectbutton">
-			いいえ
+			やめる
+			</div>
+		</div>
+
+		<div class="thirdmessagebox">
+		<s:property value="session.thirdmonstername"/><br>
+		にいくらかけますか？
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				１０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				２０
+			</a>
+			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+				５０
+			</a>
+			<div class="selectbutton">
+			やめる
 			</div>
 		</div>
 	</div>
-
-
 
 	<div class="texttopbox">
 
@@ -57,12 +93,21 @@
 	<div class="textbottombox">
 
 	<table>
+		<tr class="selectfirstbox">
+			<td><s:property value="session.firstmonstername"/></td>
+		</tr>
+		<tr class="selectsecondbox">
+			<td><s:property value="session.secondmonstername"/></td>
+		</tr>
+		<tr class="selectthirdbox">
+			<td><s:property value="session.thirdmonstername"/></td>
+		</tr>
+	</table>
+	<table>
 		<s:iterator value="selectmonsterList">
-			<tr class="selectbox">
-				<td><s:property value="name"/></td>
+			<tr>
 				<td><s:property value="hp"/></td>
 				<td><s:property value="odds"/></td>
-
 			</tr>
 		</s:iterator>
 	</table>

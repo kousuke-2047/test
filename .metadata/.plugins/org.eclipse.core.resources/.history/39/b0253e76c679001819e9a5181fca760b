@@ -1,0 +1,87 @@
+$(document).ready(function(){
+	$(".messagebox").hide();
+});
+
+$(function(){
+	$(".selectbutton").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$(".selectbutton").click(function(){
+		$(".messagebox").hide();
+	});
+});
+
+$(function(){
+	$("tr.selectfirstbox").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$("tr.selectfirstbox").click(function(){
+		$("img.enemysecondbox").hide();
+		$("img.enemythirdbox").hide();
+		$(".messagebox").css("color","black");
+		$(".messagebox").css("border-color","black");
+		$(".messagebox").fadeIn(0);
+	});
+});
+
+$(function(){
+	$("tr.selectsecondbox").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$("tr.selectsecondbox").click(function(){
+		$("img.enemyfirstbox").hide();
+		$("img.enemythirdbox").hide();
+		$(".messagebox").css("color","black");
+		$(".messagebox").css("border-color","black");
+		$(".messagebox").fadeIn(0);
+	});
+});
+
+$(function(){
+	$("tr.selectthirdbox").hover(
+			function(){
+				$(this).css("background-color","lightgray");
+				$(this).css("color","red");
+			},
+			function(){
+				$(this).css("background-color","white");
+				$(this).css("color","black");
+			});
+});
+
+$(function(){
+	$("tr.selectthirdbox").click(function(){
+		$("img.enemyfirstbox").hide();
+		$("img.enemysecondbox").hide();
+		$(".messagebox").css("color","black");
+		$(".messagebox").css("border-color","black");
+		$(".messagebox").fadeIn(0);
+	});
+});

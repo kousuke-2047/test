@@ -30,6 +30,18 @@ public Map<String ,Object>session;
 
 		session.put("menber", menber);
 
+		session.put("filepath", selectmonsterList.get(0).getFilepath());
+		session.put("firstfilename", selectmonsterList.get(0).getFilename());
+		session.put("secondfilename", selectmonsterList.get(1).getFilename());
+		session.put("thirdfilename", selectmonsterList.get(2).getFilename());
+
+		session.put("firstmonstername", selectmonsterList.get(0).getName());
+		session.put("secondmonstername", selectmonsterList.get(1).getName());
+		session.put("thirdmonstername", selectmonsterList.get(2).getName());
+		session.put("firstmonsterid", selectmonsterList.get(0).getId());
+		session.put("secondmonsterid", selectmonsterList.get(1).getId());
+		session.put("thirdmonsterid", selectmonsterList.get(2).getId());
+
 		String result = SUCCESS;
 		return result;
 	}

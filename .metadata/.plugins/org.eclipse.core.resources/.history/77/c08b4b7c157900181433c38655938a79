@@ -1,0 +1,11 @@
+$(function(){
+	setTimeout(function(){
+		$(".textafterbox").css("color","black");
+	},1000);
+});
+
+$(function(){
+	setTimeout(function(){
+		$(".textdestroybox").css("color","black");
+	},1500);
+});

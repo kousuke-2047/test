@@ -40,21 +40,85 @@
 
 	<div class="enemybox">
 
-		<s:iterator value="displayList">
-			<img src='<s:property value="filepath"/>/<s:property value="filename"/>' class="enemyminibox"/>
-		</s:iterator>
 
+		<div class="enemykaribox">
+
+			<s:if test="#session.defenseid % 3 == 1 && #session.destroyFlg==true">
+				<div class="vanishbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
+				</div>
+			</s:if>
+			<s:elseif test="#session.firstdestroy==true">
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 1">
+				<div class="flashbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
+				</div>
+			</s:elseif>
+			<s:else>
+				<div class="enemyminibox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
+				</div>
+			</s:else>
+		</div>
+
+		<div class="enemykaribox">
+
+			<s:if test="#session.defenseid % 3 == 2 && #session.destroyFlg==true">
+				<div class="vanishbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
+				</div>
+			</s:if>
+			<s:elseif test="#session.seconddestroy==true">
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 2">
+				<div class="flashbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
+				</div>
+			</s:elseif>
+			<s:else>
+				<div class="enemyminibox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
+				</div>
+			</s:else>
+		</div>
+
+		<div class="enemykaribox">
+
+			<s:if test="#session.defenseid % 3 == 0 && #session.destroyFlg==true">
+				<div class="vanishbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
+				</div>
+			</s:if>
+			<s:elseif test="#session.thirddestroy==true">
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 0">
+				<div class="flashbox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
+				</div>
+			</s:elseif>
+			<s:else>
+				<div class="enemyminibox">
+					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
+				</div>
+			</s:else>
+		</div>
 	</div>
+
 
 	<a href ='<s:url action="BattleAction">
 	<s:param name="attacknumber" value="attacknumber"/>
 	</s:url>'>
 		<div class="textbox">
-
 			<s:property value="session.attackname"/>のこうげき<br>
 			<div class="textafterbox">
-			<s:property value="session.defensename"/>に<s:property value ="session.damage"/>のダメージ
+				<s:property value="session.defensename"/>に<s:property value ="session.damage"/>のダメージ
 			</div>
+			<s:if test="!#session.destroyname.isEmpty()">
+				<div class="textdestroybox">
+					<s:property value="session.destroyname"/>をたおした!
+				</div>
+			</s:if>
 		</div>
 	</a>
 

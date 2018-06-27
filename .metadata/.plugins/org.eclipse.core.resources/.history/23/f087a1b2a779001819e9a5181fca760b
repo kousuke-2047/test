@@ -1,0 +1,24 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
+import java.util.Map;
+import java.util.ArrayList;
+
+public class LeadyAction extends ActionSupport implements SessionAware{
+
+	public Map<String ,Object>session;
+
+
+
+
+	public String execute(){
+		String result = SUCCESS;
+		return result;
+	}
+
+	public void setSession(Map<String ,Object>session){
+		this.session = session;
+	}
+
+}

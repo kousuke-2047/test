@@ -11,9 +11,13 @@ public class LeadyAction extends ActionSupport implements SessionAware{
 
 
 
-
 	public String execute(){
 		String result = SUCCESS;
+
+		session.put("firstdestroy", false);
+		session.put("seconddestroy", false);
+		session.put("thirddestroy", false);
+
 		return result;
 	}
 

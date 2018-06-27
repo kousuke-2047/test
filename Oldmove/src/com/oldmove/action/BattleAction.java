@@ -31,7 +31,8 @@ public class BattleAction extends ActionSupport implements SessionAware{
 
 		displayList =dao.getDisplayList(session.get("menber"));
 
-
+		session.remove("destroyFlg");
+		session.remove("destroyname");
 
 		if(attacknumber==0){
 			turnList= dao.getTurnInfo(session.get("menber"));
@@ -41,46 +42,48 @@ public class BattleAction extends ActionSupport implements SessionAware{
 			attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
 		}else if(attacknumber==1){
 
-
-
-			attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
-
-			if(displayList.get(0).getHp()==0 ||
-				displayList.get(1).getHp()==0 ||
-				displayList.get(2).getHp()==0){
+			if(dao.Hpcheaker(session.get("secondid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+			}else{
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
 				attacknumber++;
 			}
 
 		}else if(attacknumber==2){
 
-			if(displayList.get(0).getHp()==0 ||
-				displayList.get(1).getHp()==0 ||
-				displayList.get(2).getHp()==0){
+			if(dao.Hpcheaker(session.get("thirdid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
+			}else{
 				attacknumber=0;
 				turnList= dao.getTurnInfo(session.get("menber"));
 				session.put("firstid",turnList.get(0).getAttackid());
 				session.put("secondid",turnList.get(1).getAttackid());
 				session.put("thirdid",turnList.get(2).getAttackid());
 				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
-			}else{
-
-			attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
 			}
 
 		}else if(attacknumber==3){
+
 			attacknumber=0;
 			turnList= dao.getTurnInfo(session.get("menber"));
 			session.put("firstid",turnList.get(0).getAttackid());
 			session.put("secondid",turnList.get(1).getAttackid());
 			session.put("thirdid",turnList.get(2).getAttackid());
-			attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+
+			if(dao.Hpcheaker(session.get("firstid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+			}else{
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+			}
 		}
 
 		String result;
 		if((displayList.get(0).getHp()==0 && displayList.get(1).getHp()==0) ||
 				(displayList.get(0).getHp()==0 && displayList.get(2).getHp()==0) ||
 				(displayList.get(1).getHp()==0 && displayList.get(2).getHp()==0)){
-			result = ERROR;
+			session.put("winnername",attackList.get(0).getAttackname());
+			session.put("winnerid", attackList.get(0).getAttackid());
+			result = INPUT;
 			//試合終了
 		}else{
 			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(0).getAttackid());
@@ -90,6 +93,16 @@ public class BattleAction extends ActionSupport implements SessionAware{
 			if(damage>=defenseList.get(0).getDefensehp()){
 
 				dao.Destroy(defenseList.get(0).getDefenseid());
+				session.put("destroyname",defenseList.get(0).getDefensename());
+				session.put("destroyFlg", true);
+
+				if(defenseList.get(0).getDefenseid()%3==1){
+					session.put("firstdestroy", true);
+				}else if(defenseList.get(0).getDefenseid()%3==2){
+					session.put("seconddestroy", true);
+				}else if(defenseList.get(0).getDefenseid()%3==0){
+					session.put("thirddestroy",true);
+				}
 
 			}else{
 
@@ -98,10 +111,9 @@ public class BattleAction extends ActionSupport implements SessionAware{
 			}
 
 			session.put("damage",damage);
-
 			session.put("attackname", attackList.get(0).getAttackname());
-
 			session.put("defensename", defenseList.get(0).getDefensename());
+			session.put("defenseid",defenseList.get(0).getDefenseid());
 
 			attacknumber++;
 

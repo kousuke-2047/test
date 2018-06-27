@@ -131,9 +131,10 @@ public class BattleDAO {
 		}
 		return turnList;
 	}
-	public int checkhpList(Object attackid){
+	public boolean Hpcheaker(Object attackid){
 		String sql ="select * from battlemonster where id =?";
 		BattleDTO dto = new BattleDTO();
+		boolean hpcheak = false;
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setObject(1, attackid);
@@ -141,11 +142,14 @@ public class BattleDAO {
 
 			if(rs.next()){
 				dto.setAttackhp(rs.getInt("hp"));
+				if(dto.getAttackhp()>0){
+					hpcheak=true;
+				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return dto.getAttackhp();
+		return hpcheak;
 	}
 
 

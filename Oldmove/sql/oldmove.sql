@@ -32,6 +32,14 @@ create table actiontype(
 	spell int,
 	critical int);
 
+drop table if exists mymoney;
+
+create table mymoney(
+	money int,
+	bets int,
+	monsterid int,
+	newmoney int);
+
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("スライム",1,10,5,20,20,0,0,1,5,"./images","suraimu.jpg");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラキー",1,12,5,22,22,0,0,1,3,"./images","doraki.jpg");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ももんじゃ",1,15,7,25,25,0,0,1,2,"./images","momonja.jpg");
@@ -44,6 +52,6 @@ create table actiontype(
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("いいいい",3,10,5,20,20,0,0,1,2,"./images","test2.png");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("うううう",3,10,5,20,20,0,0,1,2,"./images","test3.png");
 
-
-
 	insert into actiontype(attack,defense,heal,spell,critical)values(3,0,0,0,1);
+
+	insert into mymoney(money,newmoney)values(100,100);

@@ -36,9 +36,27 @@ td.smalltd{
 	height:100px;
 	background-color:white;
 	float:left;
-
 }
 
+.enemykaribox{
+	width:100px;
+	height:100px;
+	background-color:white;
+	float:left;
+}
+
+.flashbox{
+	width:100px;
+	height:100px;
+	background-color:white;
+	float:left;
+}
+.vanishbox{
+	width:100px;
+	height:100px;
+	background-color:white;
+	float:left;
+}
 
 .textbox{
     width:328px;
@@ -55,9 +73,18 @@ a{
 }
 
 a .textafterbox{
-	width:100%;
+	width:300px;
 	color:white;
-
-	height:100%;
+	height:20px;
 	text-decoration:none;
+}
+a .textdestroybox{
+	width:300px;
+	color:white;
+	height:20px;
+}
+.firstbox{
+	width:100px;
+	height:100px;
+	background-color:black;
 }
