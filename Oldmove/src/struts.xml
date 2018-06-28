@@ -27,5 +27,9 @@
 	<result name ="success">index.jsp</result>
 	</action>
 
+	<action name ="GohomeAction" class="com.oldmove.action.GohomeAction" method="execute">
+	<result name ="success">index.jsp</result>
+	</action>
+
 	</package>
 </struts>

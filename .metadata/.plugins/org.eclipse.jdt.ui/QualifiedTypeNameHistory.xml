@@ -36,11 +36,13 @@
 <fullyQualifiedTypeName name="com.item.dto.ItemCDTO"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="com.item.util.DBConnector"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="com.oldmove.util.DBConnector"/>
 <fullyQualifiedTypeName name="javax.websocket.Session"/>
 <fullyQualifiedTypeName name="com.oldmove.dao.BattleDAO"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.oldmove.util.DBConnector"/>
+<fullyQualifiedTypeName name="com.oldmove.dao.CasinoDAO"/>
+<fullyQualifiedTypeName name="com.oldmove.dto.CasinoDTO"/>
 </qualifiedTypeNameHistroy>

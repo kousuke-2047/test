@@ -4,6 +4,7 @@
 	height:75px;
 	border:1px solid black;
 	border-radius:5px;
+	padding:10px;
 }
 .enemybox{
 	height:110px;
@@ -51,7 +52,7 @@
 	float:left;
 }
 .thirdmessagebox{
-	padding:5px;
+	padding-top:10px;
 	height:90px;
 	width:180px;
 	margin-left:20px;
@@ -128,6 +129,15 @@ a{
 	text-decoration:none;
 }
 
+.coinbox{
+	border:1px solid black;
+	border-radius:5px;
+	width:100px;
+	height:25px;
+	float:right;
+	padding-left:15px;
+	padding-top:5px;
+}
 
 
 

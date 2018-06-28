@@ -7,6 +7,8 @@ public class BattleDTO {
 	private String attackname;
 	private int attackhp;
 	private int attackmp;
+	private int actiontype;
+	private int attackmaxhp;
 
 	private int defenseid;
 	private int defenseguard;
@@ -43,6 +45,19 @@ public class BattleDTO {
 	public void setAttackmp(int attackmp){
 		this.attackmp = attackmp;
 	}
+	public int getActiontype(){
+		return actiontype;
+	}
+	public void setActiontype(int actiontype){
+		this.actiontype= actiontype;
+	}
+	public int getAttackmaxhp(){
+		return attackmaxhp;
+	}
+	public void setAttackmaxhp(int attackmaxhp){
+		this.attackmaxhp = attackmaxhp;
+	}
+
 
 
 

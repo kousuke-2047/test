@@ -6,9 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/battlestyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>戦闘終了画面</title>
 </head>
 <body>
+
+	<script type="text/javascript" src="./js/battle.js">
+	</script>
 
 	<table>
 		<tr  class="namebox">
@@ -34,7 +38,7 @@
 
 	<div class="enemybox">
 		<div class="enemykaribox">
-			<s:if test="#session.winerid%3==1">
+			<s:if test="#session.winnerid%3==1">
 				<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
 			</s:if>
 			<s:else>
@@ -58,10 +62,22 @@
 		</div>
 	</div>
 
-	 <a href ='<s:url action="111111111111Actuon"/>'></a>
-	<div class="textbox">
-		<s:property value="session.winername"/>がたたかいにしょうりした!
-	</div>
+	<a href ='<s:url action="BattlefinishAction"/>'>
+		<div class="textbox">
+			<s:property value="session.winnername"/>がたたかいにしょうりした!
+
+			<s:if test="#session.winFlg==true">
+				<div class="textafterbox">
+					<s:property value="betswinmoney"/>をかちとった!
+				</div>
+			</s:if>
+			<s:else>
+				<div class ="textafterbox">
+					<s:property value="session.monstername"/>はまけてしまった!
+				</div>
+			</s:else>
+		</div>
+	</a>
 
 
 </body>

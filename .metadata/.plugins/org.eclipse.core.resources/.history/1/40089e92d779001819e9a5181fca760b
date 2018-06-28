@@ -1,0 +1,22 @@
+package com.oldmove.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.oldmove.util.DBConnector;
+import com.oldmove.dto.CasinoDTO;
+
+public class CasinoDAO {
+
+	private DBConnector dbc= new DBConnector();
+	private Connection con = dbc.getConnection();
+
+	public void BetsArena(int bets,int monsterid){
+
+		String sql="update mymoney set bets=?,monsterid=?,money = money-?";
+
+	}
+
+}

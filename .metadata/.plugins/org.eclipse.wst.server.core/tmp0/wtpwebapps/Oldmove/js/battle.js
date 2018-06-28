@@ -1,3 +1,9 @@
+
+$(function(){
+	setTimeout(function(){
+		$(".textbox .criticalbox").css("color","black");
+	},700);
+});
 $(function(){
 	setTimeout(function(){
 		$(".textafterbox").css("color","black");

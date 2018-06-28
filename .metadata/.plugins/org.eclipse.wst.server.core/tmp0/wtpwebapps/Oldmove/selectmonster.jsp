@@ -16,10 +16,17 @@
 	</script>
 
 	<div class="datebox">
+
+		<div class="coinbox">
+		コイン：<s:property value="session.money"/>
+		</div>
+
 		<a href='<s:url action="SelectmonsterAction"/>'>
-		リセット
+		組み合わせのリセット
 		</a>
 	</div>
+
+
 
 	<div class="enemybox">
 
@@ -30,13 +37,19 @@
 		<div class="firstmessagebox">
 		<s:property value="session.firstmonstername"/><br>
 		にいくらかけますか？
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="10"/>
+			<s:param name="betsmonsterid" value="firstmonsterid"/></s:url>' class="selectbutton">
 				１０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="20"/>
+			<s:param name="betsmonsterid" value="firstmonsterid"/></s:url>' class="selectbutton">
 				２０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="50"/>
+			<s:param name="betsmonsterid" value="firstmonsterid"/></s:url>' class="selectbutton">
 				５０
 			</a>
 			<div class="selectbutton">
@@ -47,13 +60,19 @@
 		<div class="secondmessagebox">
 		<s:property value="session.secondmonstername"/><br>
 		にいくらかけますか？
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="10"/>
+			<s:param name="betsmonsterid" value="secondmonsterid"/></s:url>' class="selectbutton">
 				１０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="20"/>
+			<s:param name="betsmonsterid" value="secondmonsterid"/></s:url>' class="selectbutton">
 				２０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="50"/>
+			<s:param name="betsmonsterid" value="secondmonsterid"/></s:url>' class="selectbutton">
 				５０
 			</a>
 			<div class="selectbutton">
@@ -64,13 +83,19 @@
 		<div class="thirdmessagebox">
 		<s:property value="session.thirdmonstername"/><br>
 		にいくらかけますか？
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="10"/>
+			<s:param name="betsmonsterid" value="thirdmonsterid"/></s:url>' class="selectbutton">
 				１０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="20"/>
+			<s:param name="betsmonsterid" value="thirdmonsterid"/></s:url>' class="selectbutton">
 				２０
 			</a>
-			<a href ='<s:url action="LeadyAction"/>' class="selectbutton">
+			<a href ='<s:url action="LeadyAction">
+			<s:param name="bets" value="50"/>
+			<s:param name="betsmonsterid" value="thirdmonsterid"/></s:url>' class="selectbutton">
 				５０
 			</a>
 			<div class="selectbutton">

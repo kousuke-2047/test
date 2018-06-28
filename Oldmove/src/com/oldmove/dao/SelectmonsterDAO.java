@@ -29,6 +29,7 @@ public class SelectmonsterDAO {
 				dto.setId(rs.getInt("id"));
 				dto.setName(rs.getString("name"));
 				dto.setHp(rs.getInt("hp"));
+				dto.setMp(rs.getInt("mp"));
 				dto.setOdds(rs.getInt("odds"));
 				dto.setFilepath(rs.getString("filepath"));
 				dto.setFilename(rs.getString("filename"));
@@ -42,7 +43,7 @@ public class SelectmonsterDAO {
 	}
 
 	public void Resethp(){
-		String sql="update battlemonster set hp = maxhp";
+		String sql="update battlemonster set hp = maxhp,mp=maxmp";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.execute();

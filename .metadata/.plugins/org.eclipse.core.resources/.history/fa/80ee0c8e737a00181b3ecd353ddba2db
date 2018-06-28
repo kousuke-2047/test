@@ -1,0 +1,177 @@
+package com.oldmove.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
+
+
+
+import com.oldmove.dao.BattleDAO;
+import com.oldmove.dto.BattleDTO;
+import com.oldmove.dto.SelectmonsterDTO;
+import com.oldmove.dao.CasinoDAO;
+import com.oldmove.dto.CasinoDTO;
+
+
+
+public class BattleAction extends ActionSupport implements SessionAware{
+
+
+	private BattleDAO dao = new BattleDAO();
+	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
+	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
+	private int attacknumber;
+	private int damage;
+	public Map<String ,Object>session;
+	private ArrayList<SelectmonsterDTO> displayList = new ArrayList<SelectmonsterDTO>();
+	private ArrayList<BattleDTO> turnList = new ArrayList<BattleDTO>();
+
+	private CasinoDAO casinodao = new CasinoDAO();
+	private CasinoDTO casinodto = new CasinoDTO();
+	private int betswinmoney;
+
+
+
+	public String execute(){
+
+		displayList =dao.getDisplayList(session.get("menber"));
+
+		session.remove("destroyFlg");
+		session.remove("destroyname");
+
+		if(attacknumber==0){
+			turnList= dao.getTurnInfo(session.get("menber"));
+			session.put("firstid",turnList.get(0).getAttackid());
+			session.put("secondid",turnList.get(1).getAttackid());
+			session.put("thirdid",turnList.get(2).getAttackid());
+			attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+		}else if(attacknumber==1){
+
+			if(dao.Hpcheaker(session.get("secondid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+			}else{
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
+				attacknumber++;
+			}
+
+		}else if(attacknumber==2){
+
+			if(dao.Hpcheaker(session.get("thirdid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("thirdid"));
+			}else{
+				attacknumber=0;
+				turnList= dao.getTurnInfo(session.get("menber"));
+				session.put("firstid",turnList.get(0).getAttackid());
+				session.put("secondid",turnList.get(1).getAttackid());
+				session.put("thirdid",turnList.get(2).getAttackid());
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+			}
+
+		}else if(attacknumber==3){
+
+			attacknumber=0;
+			turnList= dao.getTurnInfo(session.get("menber"));
+			session.put("firstid",turnList.get(0).getAttackid());
+			session.put("secondid",turnList.get(1).getAttackid());
+			session.put("thirdid",turnList.get(2).getAttackid());
+
+			if(dao.Hpcheaker(session.get("firstid"))){
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+			}else{
+				attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+			}
+		}
+
+		String result;
+		if((displayList.get(0).getHp()==0 && displayList.get(1).getHp()==0) ||
+				(displayList.get(0).getHp()==0 && displayList.get(2).getHp()==0) ||
+				(displayList.get(1).getHp()==0 && displayList.get(2).getHp()==0)){
+			session.put("winnername",attackList.get(0).getAttackname());
+			session.put("winnerid", attackList.get(0).getAttackid());
+			result = INPUT;
+
+			casinodto=casinodao.getBetsInfo();
+
+			if(casinodto.getMonsterid()==attackList.get(0).getAttackid()){
+				betswinmoney =casinodto.getBets()*casinodto.getOdds();
+				casinodao.Betswin(betswinmoney);
+				session.put("winFlg",true);
+			}else{
+				session.put("winFlg", false);
+			}
+
+
+			//試合終了
+		}else{
+			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(0).getAttackid());
+
+			damage =attackList.get(0).getAttackpower() - defenseList.get(0).getDefenseguard();
+
+			if(damage>=defenseList.get(0).getDefensehp()){
+
+				dao.Destroy(defenseList.get(0).getDefenseid());
+				session.put("destroyname",defenseList.get(0).getDefensename());
+				session.put("destroyFlg", true);
+
+				if(defenseList.get(0).getDefenseid()%3==1){
+					session.put("firstdestroy", true);
+				}else if(defenseList.get(0).getDefenseid()%3==2){
+					session.put("seconddestroy", true);
+				}else if(defenseList.get(0).getDefenseid()%3==0){
+					session.put("thirddestroy",true);
+				}
+
+			}else{
+
+				dao.Resulthp(damage, defenseList.get(0).getDefenseid());
+
+			}
+
+			session.put("damage",damage);
+			session.put("attackname", attackList.get(0).getAttackname());
+			session.put("defensename", defenseList.get(0).getDefensename());
+			session.put("defenseid",defenseList.get(0).getDefenseid());
+
+			attacknumber++;
+
+			result = SUCCESS;
+		}
+		return result;
+	}
+	public int getAttacknumber(){
+		return attacknumber;
+	}
+	public void setAttacknumber(int attacknumber){
+		this.attacknumber = attacknumber;
+	}
+	public int getDamage(){
+		return damage;
+	}
+	public void setDamage(int damage){
+		this.damage = damage;
+	}
+	public void setSession(Map<String ,Object>session){
+		this.session = session;
+	}
+	public ArrayList<BattleDTO> getAttackList(){
+		return this.attackList;
+	}
+	public ArrayList<BattleDTO> getDefenseList(){
+		return this.defenseList;
+	}
+	public ArrayList<SelectmonsterDTO> getDisplayList(){
+		return this.displayList;
+	}
+	public ArrayList<BattleDTO> getturnList(){
+		return this.turnList;
+	}
+	public int getBetswinmoney(){
+		return betswinmoney;
+	}
+	public void setBetswinmoney(int betswinmoney){
+		this.betswinmoney= betswinmoney;
+	}
+
+
+}

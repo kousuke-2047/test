@@ -26,8 +26,8 @@ drop table if exists actiontype;
 
 create table actiontype(
 	id int not null primary key auto_increment,
-	attack int,
-	defense int,
+	punch int,
+	shield int,
 	heal int,
 	spell int,
 	critical int);
@@ -37,21 +37,22 @@ drop table if exists mymoney;
 create table mymoney(
 	money int,
 	bets int,
-	monsterid int,
-	newmoney int);
+	monsterid int);
 
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("スライム",1,10,5,20,20,0,0,1,5,"./images","suraimu.jpg");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラキー",1,12,5,22,22,0,0,1,3,"./images","doraki.jpg");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ももんじゃ",1,15,7,25,25,0,0,1,2,"./images","momonja.jpg");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("スライム",1,10,5,20,20,5,5,2,5,"./images","suraimu.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラキー",1,12,5,22,22,0,0,1,3,"./images","doraki.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ももんじゃ",1,15,7,25,25,0,0,1,2,"./images","momonja.png");
 
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("オーク",2,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ばくだんいわ",2,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラゴン",2,10,5,20,20,0,0,1,2,"./images","suraimu.jpg");
 
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ああああ",3,10,5,20,20,0,0,1,2,"./images","test1.png");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("いいいい",3,10,5,20,20,0,0,1,2,"./images","test2.png");
-	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("うううう",3,10,5,20,20,0,0,1,2,"./images","test3.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ああああ",3,10,5,20,20,10,10,3,2,"./images","test1.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("いいいい",3,10,5,20,20,10,10,3,2,"./images","test2.png");
+	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("うううう",3,10,5,20,20,10,10,3,2,"./images","test3.png");
 
-	insert into actiontype(attack,defense,heal,spell,critical)values(3,0,0,0,1);
+	insert into actiontype(punch,shield,heal,spell,critical)values(3,0,0,0,1);
+	insert into actiontype(punch,shield,heal,spell,critical)values(3,0,0,1,1);
+	insert into actiontype(punch,shield,heal,spell,critical)values(2,0,0,2,1);
 
-	insert into mymoney(money,newmoney)values(100,100);
+	insert into mymoney(money)value(100);

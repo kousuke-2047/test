@@ -14,8 +14,6 @@
 	<script type="text/javascript" src="./js/battle.js">
 	</script>
 
-
-
 	<table>
 		<tr  class="namebox">
 			<td class="smalltd"></td>
@@ -39,10 +37,7 @@
 	</table>
 
 	<div class="enemybox">
-
-
 		<div class="enemykaribox">
-
 			<s:if test="#session.defenseid % 3 == 1 && #session.destroyFlg==true">
 				<div class="vanishbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
@@ -63,7 +58,6 @@
 		</div>
 
 		<div class="enemykaribox">
-
 			<s:if test="#session.defenseid % 3 == 2 && #session.destroyFlg==true">
 				<div class="vanishbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
@@ -105,22 +99,41 @@
 		</div>
 	</div>
 
-
-	<a href ='<s:url action="BattleAction">
-	<s:param name="attacknumber" value="attacknumber"/>
-	</s:url>'>
-		<div class="textbox">
-			<s:property value="session.attackname"/>のこうげき<br>
-			<div class="textafterbox">
-				<s:property value="session.defensename"/>に<s:property value ="session.damage"/>のダメージ
-			</div>
-			<s:if test="!#session.destroyname.isEmpty()">
-				<div class="textdestroybox">
-					<s:property value="session.destroyname"/>をたおした!
+	<div class="textbox">
+		<s:if test="!#session.healmessage.isEnpty()">
+			<s:property value="session.attackname"/>
+			<s:property value="session.actionmessage"/><br>
+			<a href ='<s:url action="BattleAction">
+			<s:param name="attacknumber" value="attacknumber"/>
+			</s:url>'>
+				<div class="textafterbox">
+					<s:property value="attackname"/>
+					<s:property value="healmessage"/>
 				</div>
-			</s:if>
-		</div>
-	</a>
+			</a>
+		</s:if>
+		<s:else>
+			<s:property value="session.attackname"/>
+			<s:property value="session.actionmessage"/><br>
+				<s:if test ="!#session.criticalmessage.isEmpty()">
+					<div class="criticalbox">
+						<s:property value="session.criticalmessage"/>
+					</div>
+				</s:if>
+			<a href ='<s:url action="BattleAction">
+			<s:param name="attacknumber" value="attacknumber"/>
+			</s:url>'>
+				<div class="textafterbox">
+					<s:property value="session.defensename"/>に<s:property value ="session.damage"/>のダメージ
+				</div>
+				<s:if test="!#session.destroyname.isEmpty()">
+					<div class="textdestroybox">
+						<s:property value="session.destroyname"/>をたおした!
+					</div>
+				</s:if>
+			</a>
+		</s:else>
+	</div>
 
 </body>
 </html>

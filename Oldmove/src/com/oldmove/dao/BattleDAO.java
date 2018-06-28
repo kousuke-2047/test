@@ -8,6 +8,7 @@ import com.oldmove.util.DBConnector;
 import com.oldmove.dto.BattleDTO;
 import com.oldmove.dto.SelectmonsterDTO;
 import java.util.ArrayList;
+import com.oldmove.dto.ActiontypeDTO;
 
 public class BattleDAO {
 
@@ -18,7 +19,7 @@ public class BattleDAO {
 	public ArrayList<BattleDTO> getAttackInfo(Object menber,Object someid){
 
 		ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
-		String sql ="select * from battlemonster where menber=? and id=? and hp not in(0)";
+		String sql ="select * from battlemonster where menber=? and id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -33,14 +34,16 @@ public class BattleDAO {
 				dto.setAttackname(rs.getString("name"));
 				dto.setAttackhp(rs.getInt("hp"));
 				dto.setAttackmp(rs.getInt("mp"));
+				dto.setActiontype(rs.getInt("actiontype"));
+				dto.setAttackmaxhp(rs.getInt("maxhp"));
 				attackList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return attackList;
-
 	}
+
 	public ArrayList<BattleDTO> getDefenseInfo(Object menber,int attackid){
 		ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
 		String sql = "select * from battlemonster where menber=? and id not in(?) and hp not in(0)order by rand() limit 1";
@@ -151,6 +154,71 @@ public class BattleDAO {
 		}
 		return hpcheak;
 	}
+	public BattleDTO getWinnerInfo(Object menber){
+		String sql ="select * from battlemonster where menber=? and hp not in(0);";
+		BattleDTO dto = new  BattleDTO();
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setObject(1, menber);
+			ResultSet rs = ps.executeQuery();
 
+			if (rs.next()){
+				dto.setAttackname(rs.getString("name"));
+				dto.setAttackid(rs.getInt("id"));
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	public ActiontypeDTO getActiontype(int actiontype){
+		String sql="select * from actiontype where id=?";
+		ActiontypeDTO dto = new ActiontypeDTO();
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, actiontype);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				dto.setTypeid(rs.getInt("id"));
+				dto.setPunch(rs.getInt("punch"));
+				dto.setShield(rs.getInt("shield"));
+				dto.setHeal(rs.getInt("heal"));
+				dto.setSpell(rs.getInt("spell"));
+				dto.setCritical(rs.getInt("critical"));
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	public void Recitespell(int usemp){
+		String sql="update battlemonster set mp=mp-?";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1, usemp);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	public void Healhp(int recovery){
+		String sql="update battlemonster set hp=hp+?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, recovery);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	public void Healmax(){
+		String sql="update battlemonster set hp=maxhp";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 
 }

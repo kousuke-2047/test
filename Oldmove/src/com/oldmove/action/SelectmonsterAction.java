@@ -8,13 +8,19 @@ import java.util.Map;
 import com.oldmove.dao.SelectmonsterDAO;
 import com.oldmove.dto.SelectmonsterDTO;
 import com.oldmove.util.RandomInt;
+import com.oldmove.dao.CasinoDAO;;
 
 public class SelectmonsterAction extends ActionSupport implements SessionAware{
 
 private SelectmonsterDAO dao = new SelectmonsterDAO();
+private CasinoDAO casinodao = new CasinoDAO();
 private ArrayList<SelectmonsterDTO> selectmonsterList = new ArrayList<SelectmonsterDTO>();
 private RandomInt randomint = new RandomInt();
 private int menber;
+private int firstmonsterid;
+private int secondmonsterid;
+private int thirdmonsterid;
+private int money;
 public Map<String ,Object>session;
 
 	public String execute(){
@@ -25,6 +31,9 @@ public Map<String ,Object>session;
 
 
 		selectmonsterList = dao.getselectInfo(menber);
+
+		money=casinodao.getMoneyInfo();
+		session.put("money", money);
 
 		session.put("selectmonsterList",selectmonsterList);
 
@@ -38,9 +47,10 @@ public Map<String ,Object>session;
 		session.put("firstmonstername", selectmonsterList.get(0).getName());
 		session.put("secondmonstername", selectmonsterList.get(1).getName());
 		session.put("thirdmonstername", selectmonsterList.get(2).getName());
-		session.put("firstmonsterid", selectmonsterList.get(0).getId());
-		session.put("secondmonsterid", selectmonsterList.get(1).getId());
-		session.put("thirdmonsterid", selectmonsterList.get(2).getId());
+
+		firstmonsterid =selectmonsterList.get(0).getId();
+		secondmonsterid=selectmonsterList.get(1).getId();
+		thirdmonsterid =selectmonsterList.get(2).getId();
 
 		String result = SUCCESS;
 		return result;
@@ -57,6 +67,30 @@ public Map<String ,Object>session;
 	}
 	public void setSession(Map<String ,Object>session){
 		this.session= session;
+	}
+	public int getFirstmonsterid(){
+		return firstmonsterid;
+	}
+	public void setFirstmonsterid(int firstmonsterid){
+		this.firstmonsterid = firstmonsterid;
+	}
+	public int getSecondmonsterid(){
+		return secondmonsterid;
+	}
+	public void setSecondmonsterid(int secondmonsterid){
+		this.secondmonsterid = secondmonsterid;
+	}
+	public int getThirdmonsterid(){
+		return thirdmonsterid;
+	}
+	public void setThirdmonsterid(int thirdmonsterid){
+		this.thirdmonsterid = thirdmonsterid;
+	}
+	public int getMoney(){
+		return money;
+	}
+	public void setMoney(int money){
+		this.money = money;
 	}
 
 }

@@ -10,6 +10,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.oldmove.dao.BattleDAO;
 import com.oldmove.dto.BattleDTO;
 import com.oldmove.dto.SelectmonsterDTO;
+import com.oldmove.dao.CasinoDAO;
+import com.oldmove.dto.CasinoDTO;
+import com.oldmove.util.RandomInt;
+import com.oldmove.dto.ActiontypeDTO;
 
 
 
@@ -21,9 +25,17 @@ public class BattleAction extends ActionSupport implements SessionAware{
 	private ArrayList<BattleDTO> defenseList = new ArrayList<BattleDTO>();
 	private int attacknumber;
 	private int damage;
+	private int recovery;
 	public Map<String ,Object>session;
 	private ArrayList<SelectmonsterDTO> displayList = new ArrayList<SelectmonsterDTO>();
 	private ArrayList<BattleDTO> turnList = new ArrayList<BattleDTO>();
+
+	private CasinoDAO casinodao = new CasinoDAO();
+	private CasinoDTO casinodto = new CasinoDTO();
+	private int betswinmoney;
+
+	private RandomInt randomint= new RandomInt();
+	private ActiontypeDTO actiontypedto = new ActiontypeDTO();
 
 
 
@@ -32,7 +44,8 @@ public class BattleAction extends ActionSupport implements SessionAware{
 		displayList =dao.getDisplayList(session.get("menber"));
 
 		session.remove("destroyFlg");
-		session.remove("destroyname");
+		session.put("destroyname","");
+		session.put("criticalmessage", "");
 
 		if(attacknumber==0){
 			turnList= dao.getTurnInfo(session.get("menber"));
@@ -74,6 +87,7 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
 			}else{
 				attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+				attacknumber++;
 			}
 		}
 
@@ -81,14 +95,69 @@ public class BattleAction extends ActionSupport implements SessionAware{
 		if((displayList.get(0).getHp()==0 && displayList.get(1).getHp()==0) ||
 				(displayList.get(0).getHp()==0 && displayList.get(2).getHp()==0) ||
 				(displayList.get(1).getHp()==0 && displayList.get(2).getHp()==0)){
-			session.put("winnername",attackList.get(0).getAttackname());
-			session.put("winnerid", attackList.get(0).getAttackid());
+
+			BattleDTO winnerdto = new BattleDTO();
+			winnerdto=dao.getWinnerInfo(session.get("menber"));
+
+			session.put("winnername",winnerdto.getAttackname());
+			session.put("winnerid", winnerdto.getAttackid());
 			result = INPUT;
+
+			casinodto=casinodao.getBetsInfo();
+
+			if(casinodto.getMonsterid()==winnerdto.getAttackid()){
+				betswinmoney =casinodto.getBets()*casinodto.getOdds();
+				casinodao.Betswin(betswinmoney);
+				session.put("winFlg",true);
+			}else{
+				session.put("winFlg", false);
+				session.put("monstername", casinodto.getMonstername());
+			}
+
+
 			//試合終了
 		}else{
 			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(0).getAttackid());
 
-			damage =attackList.get(0).getAttackpower() - defenseList.get(0).getDefenseguard();
+			actiontypedto=dao.getActiontype(attackList.get(0).getActiontype());
+
+			int p  =randomint.getPriority(actiontypedto.getPunch());
+			int sh =randomint.getPriority(actiontypedto.getShield());
+			int h  =randomint.getPriority(actiontypedto.getHeal());
+			int sp =randomint.getPriority(actiontypedto.getSpell());
+			int c  =randomint.getPriority(actiontypedto.getCritical());
+
+			if(p>sh && p>h && p>sp && p>c){
+				damage =attackList.get(0).getAttackpower() - defenseList.get(0).getDefenseguard()+randomint.gerRandomdamage();
+				session.put("actionmessage", "のこうげき!");
+			}else if(sh>p && sh>h && sh>sp && sh>c){
+
+			}else if(h>p && h>sh && h>sp && h>c && attackList.get(0).getAttackmp()>=3){
+				dao.Recitespell(3);
+				damage=0;
+				recovery=30+randomint.gerRandomdamage();
+				if(recovery+attackList.get(0).getAttackhp()>attackList.get(0).getAttackmaxhp()){
+					dao.Healmax();
+				}else{
+					dao.Healhp(recovery);
+				}
+				session.put("actionmessage","はホイミをとなえた!");
+				session.put("healmessage", "のキズがかいふくした!");
+
+			}else if(sp>p && sp>sh && sp>h && sp>c && attackList.get(0).getAttackmp()>=2){
+				damage = (int)(Math.random()*4)+8;
+				session.put("actionmessage", "はメラをとなえた!");
+				dao.Recitespell(2);
+			}else if(c>p && c>sh && c>h && c>sp){
+				damage =(attackList.get(0).getAttackpower() - defenseList.get(0).getDefenseguard())*2+randomint.gerRandomdamage();
+				session.put("actionmessage", "のこうげき!");
+				session.put("criticalmessage", "かいしんのいちげき!");
+			}else{
+				damage =attackList.get(0).getAttackpower() - defenseList.get(0).getDefenseguard()+randomint.gerRandomdamage();
+				session.put("actionmessage", "のこうげき!");
+			}
+
+
 
 			if(damage>=defenseList.get(0).getDefensehp()){
 
@@ -109,6 +178,7 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				dao.Resulthp(damage, defenseList.get(0).getDefenseid());
 
 			}
+
 
 			session.put("damage",damage);
 			session.put("attackname", attackList.get(0).getAttackname());
@@ -147,6 +217,12 @@ public class BattleAction extends ActionSupport implements SessionAware{
 	}
 	public ArrayList<BattleDTO> getturnList(){
 		return this.turnList;
+	}
+	public int getBetswinmoney(){
+		return betswinmoney;
+	}
+	public void setBetswinmoney(int betswinmoney){
+		this.betswinmoney= betswinmoney;
 	}
 
 
