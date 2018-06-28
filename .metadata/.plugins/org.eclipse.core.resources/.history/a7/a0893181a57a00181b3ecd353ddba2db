@@ -202,22 +202,20 @@ public class BattleDAO {
 			e.printStackTrace();
 		}
 	}
-	public void Healhp(int recovery ,int monsterid){
-		String sql="update battlemonster set hp=hp+? where id=?";
+	public void Healhp(int recovery){
+		String sql="update battlemonster set hp=hp+?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, recovery);
-			ps.setInt(2, monsterid);
 			ps.execute();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
-	public void Healmax(int monsterid){
-		String sql="update battlemonster set hp=maxhp where id=?";
+	public void Healmax(){
+		String sql="update battlemonster set hp=maxhp";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, monsterid);
 			ps.execute();
 		}catch(SQLException e){
 			e.printStackTrace();

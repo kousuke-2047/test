@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
+
+
 import com.oldmove.dao.BattleDAO;
 import com.oldmove.dto.BattleDTO;
 import com.oldmove.dto.SelectmonsterDTO;
@@ -13,7 +15,10 @@ import com.oldmove.dto.CasinoDTO;
 import com.oldmove.util.RandomInt;
 import com.oldmove.dto.ActiontypeDTO;
 
+
+
 public class BattleAction extends ActionSupport implements SessionAware{
+
 
 	private BattleDAO dao = new BattleDAO();
 	private ArrayList<BattleDTO> attackList = new ArrayList<BattleDTO>();
@@ -31,6 +36,8 @@ public class BattleAction extends ActionSupport implements SessionAware{
 
 	private RandomInt randomint= new RandomInt();
 	private ActiontypeDTO actiontypedto = new ActiontypeDTO();
+
+
 
 	public String execute(){
 
@@ -106,6 +113,8 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				session.put("winFlg", false);
 				session.put("monstername", casinodto.getMonstername());
 			}
+
+
 			//試合終了
 		}else{
 			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(0).getAttackid());
@@ -128,9 +137,9 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				damage=0;
 				recovery=30+randomint.gerRandomdamage();
 				if(recovery+attackList.get(0).getAttackhp()>attackList.get(0).getAttackmaxhp()){
-					dao.Healmax(attackList.get(0).getAttackid());
+					dao.Healmax();
 				}else{
-					dao.Healhp(recovery,attackList.get(0).getAttackid());
+					dao.Healhp(recovery);
 				}
 				session.put("actionmessage","はホイミをとなえた!");
 				session.put("healmessage", "のキズがかいふくした!");
@@ -148,10 +157,14 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				session.put("actionmessage", "のこうげき!");
 			}
 
+
+
 			if(damage>=defenseList.get(0).getDefensehp()){
+
 				dao.Destroy(defenseList.get(0).getDefenseid());
 				session.put("destroyname",defenseList.get(0).getDefensename());
 				session.put("destroyFlg", true);
+
 				if(defenseList.get(0).getDefenseid()%3==1){
 					session.put("firstdestroy", true);
 				}else if(defenseList.get(0).getDefenseid()%3==2){
@@ -159,9 +172,13 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				}else if(defenseList.get(0).getDefenseid()%3==0){
 					session.put("thirddestroy",true);
 				}
+
 			}else{
+
 				dao.Resulthp(damage, defenseList.get(0).getDefenseid());
+
 			}
+
 
 			session.put("damage",damage);
 			session.put("attackname", attackList.get(0).getAttackname());
