@@ -45,7 +45,7 @@
 			</s:if>
 			<s:elseif test="#session.firstdestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 1">
+			<s:elseif test="#session.defenseid % 3 == 1 && #!session.damage == 0">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
 				</div>
@@ -65,7 +65,7 @@
 			</s:if>
 			<s:elseif test="#session.seconddestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 2">
+			<s:elseif test="#session.defenseid % 3 == 2 && #!session.damage == 0">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
 				</div>
@@ -86,7 +86,7 @@
 			</s:if>
 			<s:elseif test="#session.thirddestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 0">
+			<s:elseif test="#session.defenseid % 3 == 0 && #!session.damage == 0">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
 				</div>
@@ -100,15 +100,15 @@
 	</div>
 
 	<div class="textbox">
-		<s:if test="!#session.healmessage.isEnpty()">
+		<s:if test="!#session.healmessage.isEmpty()">
 			<s:property value="session.attackname"/>
 			<s:property value="session.actionmessage"/><br>
 			<a href ='<s:url action="BattleAction">
 			<s:param name="attacknumber" value="attacknumber"/>
 			</s:url>'>
 				<div class="textafterbox">
-					<s:property value="attackname"/>
-					<s:property value="healmessage"/>
+					<s:property value="session.attackname"/>
+					<s:property value="session.healmessage"/>
 				</div>
 			</a>
 		</s:if>

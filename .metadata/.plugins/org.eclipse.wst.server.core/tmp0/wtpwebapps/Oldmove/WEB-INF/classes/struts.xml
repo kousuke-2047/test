@@ -31,5 +31,9 @@
 	<result name ="success">index.jsp</result>
 	</action>
 
+	<action name="AcrobaticAction" class="com.oldmove.action.AcrobaticAction" method="execute">
+	<result name="success">acrobatic.jsp</result>
+	</action>
+
 	</package>
 </struts>

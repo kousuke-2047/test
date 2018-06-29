@@ -70,12 +70,23 @@
 				<div class="textafterbox">
 					<s:property value="betswinmoney"/>をかちとった!
 				</div>
+				<div class="coinwinnerbox">
+					コイン：<s:property value="oldmoney"/>
+				</div>
+				<div class="coinwinnerafterbox">
+					コイン：<s:property value="newmoney"/>
+				</div>
 			</s:if>
 			<s:else>
 				<div class ="textafterbox">
 					<s:property value="session.monstername"/>はまけてしまった!
 				</div>
+				<div class="coinbox">
+					コイン：<s:property value="newmoney"/>
+				</div>
 			</s:else>
+
+
 		</div>
 	</a>
 

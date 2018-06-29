@@ -18,7 +18,8 @@
 	<div class="datebox">
 
 		<div class="coinbox">
-		コイン：<s:property value="session.money"/>
+		コイン　　　：<s:property value="session.money"/><br>
+		最高コイン：<s:property value="session.maxrecord"/>
 		</div>
 
 		<a href='<s:url action="SelectmonsterAction"/>'>

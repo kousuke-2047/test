@@ -1,6 +1,0 @@
-$(function(){
-	$(".firstline").animate({'marginLeft':'300px'});
-	$(".firstline").promise().done(function(){
-		$('firstline').fadeOut();
-	});
-});

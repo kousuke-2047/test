@@ -37,7 +37,8 @@ drop table if exists mymoney;
 create table mymoney(
 	money int,
 	bets int,
-	monsterid int);
+	monsterid int,
+	maxrecord int);
 
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("スライム",1,10,5,20,20,5,5,2,5,"./images","suraimu.png");
 	insert into battlemonster(name,menber,power,guard,hp,maxhp,mp,maxmp,actiontype,odds,filepath,filename)values("ドラキー",1,12,5,22,22,0,0,1,3,"./images","doraki.png");
@@ -53,6 +54,6 @@ create table mymoney(
 
 	insert into actiontype(punch,shield,heal,spell,critical)values(3,0,0,0,1);
 	insert into actiontype(punch,shield,heal,spell,critical)values(3,0,0,1,1);
-	insert into actiontype(punch,shield,heal,spell,critical)values(2,0,0,2,1);
+	insert into actiontype(punch,shield,heal,spell,critical)values(2,0,1,1,0);
 
-	insert into mymoney(money)value(100);
+	insert into mymoney(money)values(100);

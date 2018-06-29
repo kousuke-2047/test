@@ -28,6 +28,8 @@ public class BattleAction extends ActionSupport implements SessionAware{
 	private CasinoDAO casinodao = new CasinoDAO();
 	private CasinoDTO casinodto = new CasinoDTO();
 	private int betswinmoney;
+	private int newmoney;
+	private int oldmoney;
 
 	private RandomInt randomint= new RandomInt();
 	private ActiontypeDTO actiontypedto = new ActiontypeDTO();
@@ -39,6 +41,7 @@ public class BattleAction extends ActionSupport implements SessionAware{
 		session.remove("destroyFlg");
 		session.put("destroyname","");
 		session.put("criticalmessage", "");
+		session.put("healmessage", "");
 
 		if(attacknumber==0){
 			turnList= dao.getTurnInfo(session.get("menber"));
@@ -97,15 +100,24 @@ public class BattleAction extends ActionSupport implements SessionAware{
 			result = INPUT;
 
 			casinodto=casinodao.getBetsInfo();
+			oldmoney=casinodto.getMoney();
 
 			if(casinodto.getMonsterid()==winnerdto.getAttackid()){
+
 				betswinmoney =casinodto.getBets()*casinodto.getOdds();
 				casinodao.Betswin(betswinmoney);
+
 				session.put("winFlg",true);
 			}else{
 				session.put("winFlg", false);
 				session.put("monstername", casinodto.getMonstername());
 			}
+
+			CasinoDTO newmoneydto = new CasinoDTO();
+			newmoneydto =casinodao.getMoneyInfo();
+			newmoney=newmoneydto.getMoney();
+
+
 			//試合終了
 		}else{
 			defenseList=dao.getDefenseInfo(session.get("menber"), attackList.get(0).getAttackid());
@@ -206,6 +218,18 @@ public class BattleAction extends ActionSupport implements SessionAware{
 	}
 	public void setBetswinmoney(int betswinmoney){
 		this.betswinmoney= betswinmoney;
+	}
+	public int getNewmoney(){
+		return newmoney;
+	}
+	public void setNewmondy(int newmoney){
+		this.newmoney = newmoney;
+	}
+	public int getOldmoney(){
+		return oldmoney;
+	}
+	public void setOldmoney(int oldmoney){
+		this.oldmoney=oldmoney;
 	}
 
 

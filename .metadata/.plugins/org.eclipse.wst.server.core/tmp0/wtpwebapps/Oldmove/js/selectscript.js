@@ -34,10 +34,12 @@ $(function(){
 			function(){
 				$(this).css("background-color","lightgray");
 				$(this).css("color","red");
+				$("img.enemyfirstbox").animate({opacity:'0.5',},{duration:500, easing:'swing',});
 			},
 			function(){
 				$(this).css("background-color","white");
 				$(this).css("color","black");
+				$("img.enemyfirstbox").animate({opacity:'1',},{duration:500,easing:'swing',});
 			});
 });
 $(function(){
@@ -59,10 +61,13 @@ $(function(){
 			function(){
 				$(this).css("background-color","lightgray");
 				$(this).css("color","red");
+				$("img.enemysecondbox").animate({opacity:'0.5',},{duration:500,easing:'swing',});
+
 			},
 			function(){
 				$(this).css("background-color","white");
 				$(this).css("color","black");
+				$("img.enemysecondbox").animate({opacity:'1',},{duration:500,easing:'swing',});
 			});
 });
 
@@ -85,10 +90,12 @@ $(function(){
 			function(){
 				$(this).css("background-color","lightgray");
 				$(this).css("color","red");
+				$("img.enemythirdbox").animate({opacity:'0.5',},{duration:500,easing:'swing',});
 			},
 			function(){
 				$(this).css("background-color","white");
 				$(this).css("color","black");
+				$("img.enemythirdbox").animate({opacity:'1',},{duration:500,easing:'swing',});
 			});
 });
 

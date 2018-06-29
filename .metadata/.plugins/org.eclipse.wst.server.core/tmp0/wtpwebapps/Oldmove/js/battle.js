@@ -33,6 +33,14 @@ $(function(){
 	},1150);
 });
 
+$(function(){
+	setTimeout(function(){
+		$(".coinwinnerbox").hide();
+		$(".coinwinnerafterbox").css("color", "black");
+		$(".coinwinnerafterbox").css("border-color","black");
+	},1500);
+});
+
 
 $(function(){
 	setTimeout(function(){

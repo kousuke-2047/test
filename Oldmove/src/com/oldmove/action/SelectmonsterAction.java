@@ -8,7 +8,8 @@ import java.util.Map;
 import com.oldmove.dao.SelectmonsterDAO;
 import com.oldmove.dto.SelectmonsterDTO;
 import com.oldmove.util.RandomInt;
-import com.oldmove.dao.CasinoDAO;;
+import com.oldmove.dao.CasinoDAO;
+import com.oldmove.dto.CasinoDTO;
 
 public class SelectmonsterAction extends ActionSupport implements SessionAware{
 
@@ -20,8 +21,8 @@ private int menber;
 private int firstmonsterid;
 private int secondmonsterid;
 private int thirdmonsterid;
-private int money;
 public Map<String ,Object>session;
+private CasinoDTO casinodto= new CasinoDTO();
 
 	public String execute(){
 
@@ -32,8 +33,15 @@ public Map<String ,Object>session;
 
 		selectmonsterList = dao.getselectInfo(menber);
 
-		money=casinodao.getMoneyInfo();
-		session.put("money", money);
+		casinodto=casinodao.getMoneyInfo();
+		if(casinodto.getMoney()>casinodto.getMaxrecord()){
+			casinodao.Newrecord();
+			session.put("money", casinodto.getMoney());
+			session.put("maxrecord", casinodto.getMoney());
+		}else{
+			session.put("money", casinodto.getMoney());
+			session.put("maxrecord", casinodto.getMaxrecord());
+		}
 
 		session.put("selectmonsterList",selectmonsterList);
 
@@ -86,11 +94,6 @@ public Map<String ,Object>session;
 	public void setThirdmonsterid(int thirdmonsterid){
 		this.thirdmonsterid = thirdmonsterid;
 	}
-	public int getMoney(){
-		return money;
-	}
-	public void setMoney(int money){
-		this.money = money;
-	}
+
 
 }

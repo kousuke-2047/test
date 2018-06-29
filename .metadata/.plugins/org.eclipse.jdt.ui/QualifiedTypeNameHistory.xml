@@ -45,4 +45,6 @@
 <fullyQualifiedTypeName name="com.oldmove.util.DBConnector"/>
 <fullyQualifiedTypeName name="com.oldmove.dao.CasinoDAO"/>
 <fullyQualifiedTypeName name="com.oldmove.dto.CasinoDTO"/>
+<fullyQualifiedTypeName name="com.oldmove.util.RandomInt"/>
+<fullyQualifiedTypeName name="com.oldmove.dto.ActiontypeDTO"/>
 </qualifiedTypeNameHistroy>

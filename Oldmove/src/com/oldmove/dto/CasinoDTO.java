@@ -7,6 +7,7 @@ public class CasinoDTO {
 	private int monsterid;
 	private int odds;
 	private String monstername;
+	private int maxrecord;
 
 	public int getMoney(){
 		return money;
@@ -37,6 +38,12 @@ public class CasinoDTO {
 	}
 	public void setMonstername(String monstername){
 		this.monstername= monstername;
+	}
+	public int getMaxrecord(){
+		return maxrecord;
+	}
+	public void setMaxrecord(int maxrecord){
+		this.maxrecord=maxrecord;
 	}
 
 }

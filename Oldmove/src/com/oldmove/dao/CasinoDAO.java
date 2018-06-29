@@ -60,7 +60,7 @@ public class CasinoDAO {
 			e.printStackTrace();
 		}
 	}
-	public int getMoneyInfo(){
+	public CasinoDTO getMoneyInfo(){
 		String sql = "select * from mymoney";
 		CasinoDTO dto  = new CasinoDTO();
 
@@ -69,10 +69,20 @@ public class CasinoDAO {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
 				dto.setMoney(rs.getInt("money"));
+				dto.setMaxrecord(rs.getInt("maxrecord"));
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return dto.getMoney();
+		return dto;
+	}
+	public void Newrecord(){
+		String sql="update mymoney set maxrecord=money";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.execute();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 }
