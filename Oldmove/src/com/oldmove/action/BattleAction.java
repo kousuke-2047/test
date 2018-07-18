@@ -1,17 +1,18 @@
 package com.oldmove.action;
 
-import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.oldmove.dao.BattleDAO;
-import com.oldmove.dto.BattleDTO;
-import com.oldmove.dto.SelectmonsterDTO;
 import com.oldmove.dao.CasinoDAO;
-import com.oldmove.dto.CasinoDTO;
-import com.oldmove.util.RandomInt;
 import com.oldmove.dto.ActiontypeDTO;
+import com.oldmove.dto.BattleDTO;
+import com.oldmove.dto.CasinoDTO;
+import com.oldmove.dto.SelectmonsterDTO;
+import com.oldmove.util.RandomInt;
+import com.opensymphony.xwork2.ActionSupport;
 
 public class BattleAction extends ActionSupport implements SessionAware{
 
@@ -68,7 +69,13 @@ public class BattleAction extends ActionSupport implements SessionAware{
 				session.put("firstid",turnList.get(0).getAttackid());
 				session.put("secondid",turnList.get(1).getAttackid());
 				session.put("thirdid",turnList.get(2).getAttackid());
-				attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+
+				if(dao.Hpcheaker(session.get("firstid"))){
+					attackList=dao.getAttackInfo(session.get("menber"),session.get("firstid"));
+				}else{
+					attackList=dao.getAttackInfo(session.get("menber"),session.get("secondid"));
+					attacknumber++;
+				}
 			}
 
 		}else if(attacknumber==3){

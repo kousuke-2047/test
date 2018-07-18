@@ -45,7 +45,10 @@
 			</s:if>
 			<s:elseif test="#session.firstdestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 1 && #!session.damage == 0">
+			<s:elseif test="#session.damage==0">
+				<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 1">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.firstfilename"/>'/>
 				</div>
@@ -65,7 +68,10 @@
 			</s:if>
 			<s:elseif test="#session.seconddestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 2 && #!session.damage == 0">
+			<s:elseif test="#session.damage==0">
+				<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 2">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.secondfilename"/>'/>
 				</div>
@@ -86,7 +92,10 @@
 			</s:if>
 			<s:elseif test="#session.thirddestroy==true">
 			</s:elseif>
-			<s:elseif test="#session.defenseid % 3 == 0 && #!session.damage == 0">
+			<s:elseif test="#session.damage==0">
+				<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
+			</s:elseif>
+			<s:elseif test="#session.defenseid % 3 == 0">
 				<div class="flashbox">
 					<img src ='<s:property value="#session.filepath"/>/<s:property value="#session.thirdfilename"/>'/>
 				</div>
