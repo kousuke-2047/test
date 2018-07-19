@@ -48,11 +48,11 @@
 		<img src="./images/youwin.bmp" class="winnermessage"/>
 
 
-		<div class="keytop"></div>
-		<div class="keybottom"></div>
-		<div class="keyleft"></div>
-		<div class="keyright"></div>
-		<div class="Abutton"></div>
+		<div class="keytop">↑</div>
+		<div class="keybottom">↓</div>
+		<div class="keyleft">←</div>
+		<div class="keyright">→</div>
+		<div class="Abutton">A</div>
 		<img src="./images/GAMEOVER.png" class="gameoverbox"/>
 
 
