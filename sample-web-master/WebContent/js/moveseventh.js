@@ -11,14 +11,16 @@ var rankkey=0;
 $(function(){
 	$(".startminibox").click(function(){
 		if(!largementflg){
-			$(".startminibox").fadeOut(500);
-			$(".startbox").fadeIn(500);
+			$(".main").fadeOut(500);
+			$(".mainsecond").fadeIn(500);
+
 			$(".keytop").fadeIn(500);
 			$(".keybottom").fadeIn(500);
 			$(".keyleft").fadeIn(500);
 			$(".keyright").fadeIn(500);
 			$(".Abutton").fadeIn(500);
 			$(".Bbutton").fadeIn(500);
+
 			largementflg=true;
 		};
 	});
@@ -31,25 +33,16 @@ $(function(){
 			startflg=true;
 		}else if(startflg){
 			if(rankkey==0){
-				$(".actrankbox").fadeOut(0);
-				$(".puzrankbox").fadeOut(0);
-				$(".rpgrankbox").fadeIn(0);
 				$(".actnamebox").fadeOut(0);
 				$(".puznamebox").fadeOut(0);
 				$(".rpgnamebox").fadeIn(0);
 				rpgflg=true;
 			}else if(rankkey==1){
-				$(".rpgrankbox").fadeOut(0);
-				$(".puzrankbox").fadeOut(0);
-				$(".actrankbox").fadeIn(0);
 				$(".rpgnamebox").fadeOut(0);
 				$(".puznamebox").fadeOut(0);
 				$(".actnamebox").fadeIn(0);
 				actflg=true;
 			}else if(rankkey==2){
-				$(".rpgrankbox").fadeOut(0);
-				$(".actrankbox").fadeOut(0);
-				$(".puzrankbox").fadeIn(0);
 				$(".actnamebox").fadeOut(0);
 				$(".rpgnamebox").fadeOut(0);
 				$(".puznamebox").fadeIn(0);
@@ -60,7 +53,7 @@ $(function(){
 			$(".secondselectbox").fadeIn(0);
 			$(".Abutton").fadeOut(0);
 			$(".afterAbutton").fadeIn(0);
-			$(".key").css({position:"absolute",left:"300px",top:"285px"});
+			$(".key").css({position:"absolute",left:"250px",top:"225px"});
 			$(".rankfirstbox").animate({opacity:'0.5'},200);
 		}else if(rankflg){
 
@@ -96,7 +89,10 @@ $(function(){
 			$(".secondselectbox").fadeOut(0);
 			$(".Abutton").fadeIn(0);
 			$(".afterAbutton").fadeOut(0);
-			$(".key").css({position:"absolute",left:"40px",top:"285px"});
+			$(".rpgrankbox").fadeIn(0);
+			$(".actrankbox").fadeOut(0);
+			$(".puzrankbox").fadeOut(0);
+			$(".key").css({position:"absolute",left:"40px",top:"225px"});
 			$(".rankfirstbox").animate({opacity:'1'},200);
 			$(".ranksecondbox").animate({opacity:'1'},200);
 			$(".rankthirdbox").animate({opacity:'1'},200);
@@ -104,15 +100,15 @@ $(function(){
 		}else if(!rankflg && startflg){
 			$(".startbox").fadeIn(0);
 			$(".battlebox").fadeOut(0);
-			$(".key").css({position:"absolute",left:"40px",top:"285px"});
+			$(".key").css({position:"absolute",left:"40px",top:"225px"});
 			startflg=false;
 			rankkey=0;
 			$(".rpgrankbox").fadeOut(0);
 			$(".actrankbox").fadeOut(0);
 			$(".puzrankbox").fadeOut(0);
 		}else if(!startflg){
-			$(".startminibox").fadeIn(500);
-			$(".startbox").fadeOut(500);
+			$(".main").fadeIn(500);
+			$(".mainsecond").fadeOut(500);
 			$(".keytop").fadeOut(500);
 			$(".keybottom").fadeOut(500);
 			$(".keyleft").fadeOut(500);
@@ -127,7 +123,7 @@ $(function(){
 		if(!startflg){
 
 		}else if(rankkey>0){
-			$(".key").css({"top":"-=45px"});
+			$(".key").css({"top":"-=35px"});
 			rankkey--;
 			if(rankflg && rankkey==0){
 				$(".rankfirstbox").animate({opacity:'0.5'},200);
@@ -137,6 +133,14 @@ $(function(){
 				$(".rankfirstbox").animate({opacity:'1'},200);
 				$(".ranksecondbox").animate({opacity:'0.5'},200);
 				$(".rankthirdbox").animate({opacity:'1'},200);
+			}else if(rankkey==0){
+				$(".actrankbox").fadeOut(0);
+				$(".puzrankbox").fadeOut(0);
+				$(".rpgrankbox").fadeIn(0);
+			}else if(rankkey==1){
+				$(".puzrankbox").fadeOut(0);
+				$(".rpgrankbox").fadeOut(0);
+				$(".actrankbox").fadeIn(0);
 			};
 		};
 	});
@@ -144,7 +148,7 @@ $(function(){
 		if(!startflg){
 
 		}else if(rankkey<2){
-			$(".key").css({"top":"+=45px"});
+			$(".key").css({"top":"+=35px"});
 		rankkey++;
 			if(rankflg && rankkey==1){
 				$(".rankfirstbox").animate({opacity:'1'},200);
@@ -154,7 +158,15 @@ $(function(){
 				$(".rankfirstbox").animate({opacity:'1'},200);
 				$(".ranksecondbox").animate({opacity:'1'},200);
 				$(".rankthirdbox").animate({opacity:'0.5'},200);
-			};
+			}else if(rankkey==1){
+				$(".puzrankbox").fadeOut(0);
+				$(".rpgrankbox").fadeOut(0);
+				$(".actrankbox").fadeIn(0);
+			}else if(rankkey==2){
+				$(".rpgrankbox").fadeOut(0);
+				$(".actrankbox").fadeOut(0);
+				$(".puzrankbox").fadeIn(0);
+			}
 		};
 	});
 });

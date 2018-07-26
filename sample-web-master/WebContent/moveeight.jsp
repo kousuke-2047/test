@@ -6,10 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/movefourth.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>テトリスっぽい何かセカンド</title>
+<title>アニメーション画像変更</title>
 </head>
 <body>
-
 	<script type="text/javascript" src="./js/movefourth.js">
 	</script>
 
@@ -22,34 +21,30 @@
 		<img src="./images/retrislogoonly.png" class="logo"/>
 
 		<div class="firstbox">
-			<img src="./images/retrissecondonlyone.png" class="threeline"/>
-			<img src="./images/retrissecondonlytwo.png" class="firstboxtwo"/>
+			<img src="./images/ブロック/ブロック6.jpg"/>
+
 		</div>
 
 		<div class="secondbox">
-			<img src="./images/retrisseventhonly.png" class="twoline"/>
-			<img src="./images/retrisseventhonly.png" class="secondboxtwo"/>
+			<img src="./images/ブロック/ブロック1.jpg"/>
 		</div>
 
 		<div class="thirdbox">
-			<img src="./images/retrissixthonlyone.png" class="threeline"/>
-			<img src="./images/retrissixthonlytwo.png" class="thirdboxtwo"/>
+			<img src="./images/ブロック/ブロック3.jpg"/>
 		</div>
 
 		<div class="fourthbox">
-			<img src="./images/retrissixthonlyone.png" class="threeline"/>
-			<img src="./images/retrissixthonlytwo.png" class="fourthboxtwo"/>
+			<img src="./images/ブロック/ブロック3.jpg"/>
+
 		</div>
 
 
 		<div class="fifthbox">
 			<img src="./images/retristhirdonlyone.png" class="threeline"/>
-			<img src="./images/retristhirdonlytwo.png" class="fifthboxtwo"/>
 		</div>
 
 		<div class="sixthbox">
 			<img src="./images/retrissecondonlyone.png" class="threeline"/>
-			<img src="./images/retrissecondonlytwo.png" class="sixthboxtwo"/>
 		</div>
 
 		<div class="seventhbox">
